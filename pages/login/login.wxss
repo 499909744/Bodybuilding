@@ -1,0 +1,40 @@
+/* page/login/login.wxss */
+
+.L_outer {
+  padding: 0 6%;
+}
+
+.L_logiImg {
+  height: 20%;
+}
+
+.L_content view {
+  width: 100%;
+}
+
+.L_content input {
+  border: 1px solid #dfdfdf;
+  border-radius: 5px;
+  height: 34px;
+  margin-bottom: 4%;
+}
+
+.L_content view:nth-child(2) {
+  margin-bottom: 10%;
+}
+
+.L_content view:nth-child(2) input {
+  width: 60%;
+  float: left;
+  margin-right: 3%;
+}
+
+.L_content .getSecurityCode {
+  height: 36px;
+  line-height: 36px;
+  font-size: 13px;
+}
+
+.L_content .register {
+  width: 100%;
+}

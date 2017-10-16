@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/user/user",
+    "pages/login/login",
+    "pages/map/map",
+    "pages/user/auth/auth",
+    "pages/user/coupon/coupon",
+    "pages/user/fault/fault",
+    "pages/user/record/record",
+    "pages/user/share/share",
+    "pages/settlement/settlement",
+    "pages/payment/payment"
+  ]
+}
