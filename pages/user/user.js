@@ -9,9 +9,29 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   //事件处理函数
-  bindViewTap: function () {
+  linkRecord: function () {
     wx.navigateTo({
-      url: '../login/login'
+      url: '../user/record/record'
+    })
+  },
+  linkAuth: function () {
+    wx.navigateTo({
+      url: '../user/auth/auth'
+    })
+  },
+  linkCoupon: function () {
+    wx.navigateTo({
+      url: '../user/coupon/coupon'
+    })
+  },
+  linkShare: function () {
+    wx.navigateTo({
+      url: '../user/share/share'
+    })
+  },
+  linkFault: function () {
+    wx.navigateTo({
+      url: '../user/fault/fault'
     })
   },
   onLoad: function () {
@@ -24,7 +44,6 @@ Page({
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
-        console.log(res)
         this.setData({
           userInfo: res.userInfo,
           hasUserInfo: true

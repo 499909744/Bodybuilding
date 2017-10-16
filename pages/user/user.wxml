@@ -1,13 +1,29 @@
 <!--pages/user/user.wxml-->
 <view class="container">
-  <view class="userinfo">
+  <view class="userinfoImg">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <text class="userinfo-nickname">13488888888</text>
+      <text class="userinfo-nickname">信用积分：100</text>
     </block>
   </view>
-  <view class="usermotto"></view>
-  
+  <view class="userinfo">
+    <view bindtap="linkRecord">健身记录
+      <view class="triangle-facing-right"></view>
+    </view>
+    <view bindtap="linkAuth">实名认证
+      <view class="triangle-facing-right"></view>
+      <text class="authentication">已认证</text>
+    </view>
+    <view bindtap="linkCoupon">优惠券
+      <view class="triangle-facing-right"></view>
+    </view>
+    <view bindtap="linkShare">邀请好友
+      <view class="triangle-facing-right"></view>
+    </view>
+    <view bindtap="linkFault">故障上报
+      <view class="triangle-facing-right"></view>
+    </view>
+  </view>
 </view>
-
