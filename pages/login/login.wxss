@@ -1,7 +1,7 @@
 /* page/login/login.wxss */
 
 .L_outer {
-  padding: 0 6%;
+  padding: 0 5%;
 }
 
 .L_logiImg {
@@ -36,6 +36,3 @@
   font-size: 13px;
 }
 
-.L_content .register {
-  width: 100%;
-}
