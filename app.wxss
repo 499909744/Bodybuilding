@@ -8,3 +8,12 @@
   padding: 50rpx 0;
   box-sizing: border-box;
 } 
+.containerPadding {
+  height: 100%;
+  padding: 0 5%;
+}
+.bottomBtn{
+  width: 90%;
+  position: absolute;
+  bottom: 100rpx;
+}

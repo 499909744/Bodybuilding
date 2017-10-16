@@ -1,10 +1,4 @@
 /* page/user/auth/auth.wxss */
-
-.a_container {
-  width: 100%;
-  padding: 5%;
-}
-
 .a_section{
   margin-top: 30rpx;
 }
@@ -13,11 +7,6 @@
   border: 1px solid #dfdfdf;
   border-radius: 5px;
   height: 80rpx;
-  width: 86%;
+  width: 96%;
   margin-bottom: 4%;
-}
-.confirmAttestation{
-  width: 90%;
-  position: absolute;
-  bottom: 160rpx;
 }

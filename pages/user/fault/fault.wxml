@@ -1,2 +1,9 @@
 <!--page/user/fault/fault.wxml-->
-<text>page/user/fault/fault.wxml</text>
+<view class="containerPadding">
+  <form bindsubmit="bindFormSubmit">
+    <textarea placeholder="请输入遇到的问题，我们会尽快解决。" name="textarea" />
+    <view class="bottomBtn">
+      <button form-type="submit" type="primary" size="default" loading="{{loading}}" disabled="{{disabled}}" bindtap="primary" maxlength="-1"> 提交 </button>
+    </view>
+  </form>
+</view>
