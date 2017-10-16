@@ -1,2 +1,10 @@
 <!--page/user/auth/auth.wxml-->
-<text>page/user/auth/auth.wxml</text>
+<view class="a_container">
+  <view class="a_section">
+    <input type="text" placeholder="请输入姓名" />
+    <input type="idcard" placeholder="身份证输入键盘" />
+  </view>
+  <view class="confirmAttestation">
+    <button type="primary" size="default" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="primary">确定 </button>
+  </view>
+</view>

@@ -1,2 +1,16 @@
 <!--page/user/record/record.wxml-->
-<text>page/user/record/record.wxml</text>
+<view class="r_container">
+  <view class="r_title">
+    <text>健身记录</text>
+  </view>
+  <view class="r_content">
+    <view class="r_recordText">
+      <view class="dot"></view>
+      <text>2017-10-16 19:33:03 共消费1元</text>
+    </view>
+    <view class="r_recordText">
+      <view class="dot"></view>
+      <text>2017-10-16 19:33:03 共消费1元</text>
+    </view>
+  </view>
+</view>

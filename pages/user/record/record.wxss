@@ -1,1 +1,22 @@
 /* page/user/record/record.wxss */
+.r_container{
+  padding: 30rpx 30rpx 50rpx 30rpx;
+}
+.r_title{
+  text-align: center;
+  font-weight: bold;
+  font-size: 46rpx;
+}
+.r_recordText{
+  height: 30rpx;
+  line-height: 30rpx;
+  margin-top: 50rpx;
+}
+.dot {
+  width: 20rpx;
+  height: 20rpx;
+  margin: 5rpx 30rpx 5rpx 20rpx;
+  border-radius: 50%;
+  background: #00c777;
+  float: left;
+}

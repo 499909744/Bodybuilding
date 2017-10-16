@@ -13,6 +13,7 @@
 }
 
 .L_content input {
+  padding-left: 30rpx;
   border: 1px solid #dfdfdf;
   border-radius: 5px;
   height: 34px;
