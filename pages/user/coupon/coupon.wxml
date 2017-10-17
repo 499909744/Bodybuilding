@@ -1,2 +1,7 @@
 <!--page/user/coupon/coupon.wxml-->
-<text>page/user/coupon/coupon.wxml</text>
+<view class="containerPadding">
+  <view class="c_noquan">
+    <image src="../../../images/user/noquan.png"></image>
+    <view class="c_noText">暂无优惠券</view>
+  </view>
+</view>

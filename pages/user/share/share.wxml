@@ -1,7 +1,10 @@
 <!--page/user/share/share.wxml-->
 <view class="containerPadding">
   <view class="bottomBtn">
-    <button open-type="share" type="primary" size="default">邀请微信好友</button>
+    <button open-type="share" type="primary" size="default">
+    <image src="../../../images/user/btnWx.png"></image>
+    邀请微信好友
+    </button>
   </view>
 
 </view>

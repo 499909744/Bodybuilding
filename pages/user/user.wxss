@@ -34,7 +34,7 @@
   margin-right: 20rpx;
 }
 .userinfo>view{
- padding: 20rpx 40rpx 10rpx 20rpx;
+ padding: 30rpx 40rpx 20rpx 30rpx;
  border-top: 1px solid #dedede;
 }
 .userinfo>view:last-child{

@@ -5,6 +5,9 @@
     <input type="idcard" placeholder="身份证输入键盘" />
   </view>
   <view class="bottomBtn">
-    <button type="primary" size="default" loading="{{loading}}" disabled="{{disabled}}" bindtap="primary">确定 </button>
+    <button type="primary" size="default" loading="{{loading}}" disabled="{{disabled}}" bindtap="primary">
+    <image src="../../../images/user/btnRen.png"></image>
+    确定 
+    </button>
   </view>
 </view>

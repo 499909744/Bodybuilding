@@ -1,1 +1,16 @@
 /* page/user/coupon/coupon.wxss */
+
+.c_noquan {
+  margin-top: 200rpx;
+  width: 100%;
+  text-align: center;
+}
+
+.c_noquan image {
+  width: 400rpx;
+  height: 400rpx;
+}
+.c_noText{
+  color: #aaa;
+  margin-top: 30rpx;
+}

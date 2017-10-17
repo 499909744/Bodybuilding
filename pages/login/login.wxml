@@ -13,6 +13,9 @@
     </view>
   </view>
   <view class="bottomBtn">
-    <button size="default" type="primary" loading="{{loading}}" disabled="{{disabled}}" bindtap="register">立即注册</button>
+    <button size="default" type="primary" loading="{{loading}}" disabled="{{disabled}}" bindtap="register">
+     <image src="../../images/user/btnDl.png"></image>
+    立即注册
+    </button>
   </view>
 </view>

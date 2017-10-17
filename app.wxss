@@ -17,3 +17,9 @@
   position: absolute;
   bottom: 100rpx;
 }
+.bottomBtn image{
+  width: 60rpx;
+  height:60rpx;
+  vertical-align: middle;
+  margin-bottom: 16rpx;
+}
