@@ -26,8 +26,15 @@
   margin-top: 80rpx;
   text-align: left;
 }
+.userinfo image{
+  width: 44rpx;
+  height: 44rpx;
+  vertical-align: middle;
+  margin-bottom: 10rpx;
+  margin-right: 20rpx;
+}
 .userinfo>view{
- padding: 20rpx 40rpx;
+ padding: 20rpx 40rpx 10rpx 20rpx;
  border-top: 1px solid #dedede;
 }
 .userinfo>view:last-child{

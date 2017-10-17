@@ -9,20 +9,25 @@
     </block>
   </view>
   <view class="userinfo">
-    <view bindtap="linkRecord">健身记录
+    <view bindtap="linkRecord">
+      <image src="../../images/user/yun.png"></image>健身记录
       <view class="triangle-facing-right"></view>
     </view>
-    <view bindtap="linkAuth">实名认证
+    <view bindtap="linkAuth">
+      <image src="../../images/user/ren.png"></image>实名认证
       <view class="triangle-facing-right"></view>
       <text class="authentication">已认证</text>
     </view>
-    <view bindtap="linkCoupon">优惠券
+    <view bindtap="linkCoupon">
+      <image src="../../images/user/quan.png"></image>优惠券
       <view class="triangle-facing-right"></view>
     </view>
-    <view bindtap="linkShare">邀请好友
+    <view bindtap="linkShare">
+      <image src="../../images/user/yao.png"></image>邀请好友
       <view class="triangle-facing-right"></view>
     </view>
-    <view bindtap="linkFault">故障上报
+    <view bindtap="linkFault">
+      <image src="../../images/user/gu.png"></image>故障上报
       <view class="triangle-facing-right"></view>
     </view>
   </view>
