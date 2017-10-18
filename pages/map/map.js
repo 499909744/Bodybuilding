@@ -18,8 +18,8 @@ Page({
     var that = this;
     var myAmapFun = new amapFile.AMapWX({ key: '8c52e30969e901461b1796ae95525543' });
     myAmapFun.getPoiAround({
-      iconPathSelected: '选中 marker 图标的相对路径', //如：..­/..­/img/marker_checked.png
-      iconPath: '未选中 marker 图标的相对路径', //如：..­/..­/img/marker.png
+      iconPathSelected: '../../images/map/marker.png', //如/：..­/..­/img/marker_checked.png
+      iconPath: '../../images/map/marker.png', //如：..­/..­/img/marker.png
       success: function (data) {
         markersData = data.markers;
         that.setData({
@@ -31,6 +31,7 @@ Page({
         that.setData({
           longitude: markersData[0].longitude
         });
+        console.log(markersData)
         that.showMarkerInfo(markersData, 0);
       },
       fail: function (info) {
@@ -52,9 +53,9 @@ Page({
     var markers = [];
     for (var j = 0; j < data.length; j++) {
       if (j == i) {
-        data[j].iconPath = "选中 marker 图标的相对路径"; //如：..­/..­/img/marker_checked.png
+        data[j].iconPath = "../../images/map/marker.png"; //如：..­/..­/img/marker_checked.png
       } else {
-        data[j].iconPath = "未选中 marker 图标的相对路径"; //如：..­/..­/img/marker.png
+        data[j].iconPath = "../../images/map/marker.png"; //如：..­/..­/img/marker.png
       }
       markers.push(data[j]);
     }
