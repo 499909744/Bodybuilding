@@ -11,7 +11,8 @@
           <input class="weui-input" type="number" placeholder="请输入手机号" />
         </view>
         <view class="weui-cell__ft">
-          <view class="weui-vcode-btn">获取验证码</view>
+          <view wx:if="{{second>0}}" class="weui-vcode-btn">重新发送（{{second}}）</view>
+          <view wx:else class="weui-vcode-btn" bindtap="startCountdown">获取验证码</view>
         </view>
       </view>
       <view class="weui-cell weui-cell_input">
