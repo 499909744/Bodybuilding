@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/user/user",
     "pages/login/login",
     "pages/map/map",
+    "pages/user/user",
     "pages/user/auth/auth",
     "pages/user/coupon/coupon",
     "pages/user/fault/fault",
@@ -10,5 +10,11 @@
     "pages/user/share/share",
     "pages/settlement/settlement",
     "pages/payment/payment"
-  ]
+  ],
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  }
 }

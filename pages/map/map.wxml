@@ -3,5 +3,5 @@
   <text>{{textData.desc}}</text>
 </view>
 <view class="map_container">
-  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="15" show-location="true" markers="{{markers}}" bindmarkertap="makertap"></map>
+  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="12" show-location="true" markers="{{markers}}" bindmarkertap="makertap"></map>
 </view>
