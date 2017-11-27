@@ -50,6 +50,9 @@ Page({
         that.setData({
           longitude: longitude
         });
+      },
+      fail: function (error) {
+        console.log(error);
       }
     })
   },
@@ -88,6 +91,12 @@ Page({
       fail: function (res) {
         console.log(res)
       }
+    })
+  },
+
+  linkUserInfo: function () {
+    wx.navigateTo({
+      url: '../user/user'
     })
   }
 })

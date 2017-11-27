@@ -5,3 +5,10 @@
 <view class="map_container">
   <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="12" show-location="true" markers="{{markers}}" bindmarkertap="makertap"></map>
 </view>
+
+<view class='user_content'>
+  <image class='user_location' src='../../images/map/location.png' bindtap="getCurrentLocation"></image>
+  <image class='user_info' src='../../images/map/location.png' bindtap="linkUserInfo"></image>
+
+  <button class='sbtn'>扫码进仓</button>
+</view>
