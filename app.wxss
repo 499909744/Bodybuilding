@@ -36,3 +36,27 @@ page {
   text-align: left;
   font-size: 14px;
 }
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50rpx 0;
+  box-sizing: border-box;
+} 
+.containerPadding {
+  height: 100%;
+  padding: 0 5%;
+}
+.bottomBtn{
+  width: 90%;
+  position: absolute;
+  bottom: 100rpx;
+}
+.bottomBtn image{
+  width: 60rpx;
+  height:60rpx;
+  vertical-align: middle;
+  margin-bottom: 10rpx;
+}
