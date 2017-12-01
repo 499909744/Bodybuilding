@@ -6,7 +6,8 @@ Page({
     markers: [],
     latitude: '',
     longitude: '',
-    textData: {}
+    textData: {},
+    textShow: false
   },
   makertap: function (e) {
     var id = e.markerId;
@@ -29,7 +30,8 @@ Page({
       textData: {
         name: data[i].name,
         desc: data[i].gymItems
-      }
+      },
+      textShow: true
     });
   },
   /**

@@ -20,6 +20,7 @@
   height: 120px;
   padding: 0 15px;
   z-index: 1;
+  background-color: #fff;
 }
 
 text {

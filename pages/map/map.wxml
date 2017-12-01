@@ -1,4 +1,4 @@
-<view class="map_text">
+<view class="map_text" wx:if="{{textShow}}">
   <text class="h1">{{textData.name}}</text>
   <text>{{textData.desc}}</text>
 </view>
