@@ -1,10 +1,9 @@
 .map_container {
   position: absolute;
-  top: 0;
+  top: 260rpx;
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 0;
 }
 
 .map {
@@ -17,53 +16,18 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 120px;
-  padding: 0 15px;
-  z-index: 1;
+  height: 260rpx;
+  padding: 0 15rpx;
   background-color: #fff;
 }
 
 text {
-  margin: 5px 0;
+  margin: 5rpx 0;
   display: block;
-  font-size: 12px;
+  font-size: 25rpx;
 }
 
 .h1 {
-  margin: 15px 0;
-  font-size: 15px;
-}
-
-.user_content {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 120px;
-}
-
-.user_content > .user_location{
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  left: 20px;
-}
-
-.user_content > .user_info{
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  right: 20px;
-}
-
-.user_content > .sbtn{
-  position: absolute;
-  background-color: #000;
-  color: #fff;
-  height: 60px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  font-weight: 900;
-  font-size: 22px;
+  margin: 35rpx 0;
+  font-size: 35rpx;
 }

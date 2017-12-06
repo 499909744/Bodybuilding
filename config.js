@@ -1,4 +1,4 @@
-var host = 'http://127.0.0.1:1314'
+var host = 'http://192.168.1.101:1314'
 
 var config = {
   host,
