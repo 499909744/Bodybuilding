@@ -1,9 +1,13 @@
 <!--page/user/fault/fault.wxml-->
 <view class="containerPadding">
-  <form bindsubmit="bindFormSubmit">
-    <textarea placeholder="请输入遇到的问题，我们会尽快解决。" name="textarea" />
+  <form bindsubmit="formSubmit">
+    <view class="margin_top40">
+      <input name="gymHourseSerial" value='' class="tel_input" placeholder="请输入所在健身房" />
+      <input name="title" class="tel_input"  value='' placeholder="请输入故障说明" />
+    </view>
+    <textarea placeholder="请输入故障详情，我们会尽快解决。"  value='' name="description" />
     <view class="bottomBtn">
-      <button form-type="submit" type="primary" size="default" loading="{{loading}}" disabled="{{disabled}}" bindtap="primary" maxlength="-1">
+      <button form-type="submit" type="primary" size="default" loading="{{loading}}" bindtap="primary">
         <image src="../../../images/user/btnKe.png"></image>
         提交
       </button>

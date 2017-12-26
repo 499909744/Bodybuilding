@@ -1,4 +1,6 @@
 // page/user/auth/auth.js
+const app = getApp()
+const saveUserInfoUrl = require('../../../config').saveUserInfoUrl;
 Page({
 
   /**

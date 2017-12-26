@@ -8,7 +8,7 @@
     <view class="weui-cells">
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__bd">
-          <input class="weui-input" type="number" placeholder="请输入手机号" />
+          <input class="weui-input" type="number" placeholder="请输入手机号" maxlength="11" bindinput="bindKeyPhone" name="phone"/>
         </view>
         <view class="weui-cell__ft">
           <view wx:if="{{second>0}}" class="weui-vcode-btn">重新发送（{{second}}）</view>
@@ -17,7 +17,7 @@
       </view>
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__bd">
-          <input class="weui-input" type="number" placeholder="请输入验证码" />
+          <input class="weui-input" type="number" placeholder="请输入验证码" bindinput="bindKeyVcode"  name="vCode"/>
         </view>
       </view>
     </view>

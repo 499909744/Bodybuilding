@@ -1,13 +1,7 @@
 const tokenIdUrl = require('./config').getTokenIdUrl
+const getUserInfoUrl = require('./config').getUserInfoUrl;
 
 App({
-  onLaunch: function () {
-  },
-
-  globalData: {
-    token: null,
-    userInfo: null
-  },
   /**
    * 获取用户tokenid
    */
@@ -21,10 +15,11 @@ App({
           console.log(tokenIdUrl)
           wx.request({
             url: tokenIdUrl + '?code=' + data.code,
-            method:'POST',
+            method: 'POST',
             success: function (res) {
               console.log(res)
               self.globalData.token = res.token
+              self.getUserInfo();
             },
             fail: function (res) {
               console.log('拉取用户openid失败，将无法正常使用开放接口等服务', res)
@@ -41,19 +36,63 @@ App({
    * 获取用户基本信息
    */
   getUserInfo: function () {
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          wx.getUserInfo({
-            success: res => {
-              this.globalData.userInfo = res.userInfo
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
+    wx.showLoading({
+      title: '加载中',
+    })
+    let that = this;
+    wx.request({
+      url: getUserInfoUrl,
+      header: {
+        "content-type": "application/json",
+        "token_id": app.globalData.token_id
+      },
+      method: "GET",
+      success: function (res) {
+        console.log(res);
+        if (res.statusCode == 200) {
+          if (!res.data.mobile) {
+           
+          } else {
+            that.globalData.authUserInfo = true;
+          }
+        } else {
+          wx.showModal({
+            content: '当前服务器繁忙，请稍后再试',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
               }
             }
-          })
+          });
         }
+      },
+      fail: function (res) {
+        console.log(res);
+      }, complete: function () {
+        wx.hideLoading()
       }
+
     })
+  },
+  onLaunch: function () {
+    let that = this;
+    // if (!that.globalData.token_id) {
+    //   that.getUserTokenId();
+    // }
+    if (!that.globalData.userInfo) {
+      wx.getUserInfo({
+        success: res => {
+          that.globalData.userInfo = res.userInfo
+        }
+      })
+    }
+  },
+
+  globalData: {
+    token: null,
+    userInfo: null,
+    authUserInfo:false
   }
+
 })

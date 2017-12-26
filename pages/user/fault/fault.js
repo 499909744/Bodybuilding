@@ -1,4 +1,6 @@
 // page/user/fault/fault.js
+const app = getApp()
+const reportFaultUrl = require('../../../config').reportFaultUrl;
 Page({
 
   /**
@@ -7,8 +9,97 @@ Page({
   data: {
 
   },
-  bindFormSubmit: function (e) {
-    console.log(e.detail.value.textarea)
+  formSubmit: function (e) {
+    console.log(e.detail.value)
+    const dataPara = e.detail.value;
+    if (!dataPara.gymHourseSerial) {
+      wx.showModal({
+        content: '请输入所在健身房',
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      });
+
+    } else if (!dataPara.title) {
+
+      wx.showModal({
+        content: '请输入故障说明',
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      });
+
+    } else if (!dataPara.description) {
+      wx.showModal({
+        content: '请输入故障详情',
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      });
+    } else {
+      dataPara.openId = '1';
+      this.reportFault(dataPara)
+    }
+  },
+  /**
+   * 上报故障
+   */
+  reportFault: function (dataPara) {
+    let that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+
+    wx.request({
+      url: reportFaultUrl,
+      header: {
+        "content-type": "application/json",
+        "token_id": "9f1fc10966b046dc9906520f9020ebc2"
+      },
+      method: "POST",
+      data: dataPara,
+      success: function (res) {
+        console.log(res);
+        if (res.statusCode == 200) {
+          wx.showModal({
+            content: '提交成功，我们尽快处理！',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                
+              }
+            }
+          });
+        } else {
+          wx.showModal({
+            content: '当前服务器繁忙，请稍后再试',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              }
+            }
+          });
+        }
+
+      },
+      fail: function (res) {
+        console.log(res);
+      },
+      complete: function () {
+        wx.hideLoading()
+      }
+
+    })
   },
   /**
    * 生命周期函数--监听页面加载
