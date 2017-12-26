@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/login/login",
     "pages/map/map",
     "pages/user/user",
+    "pages/login/login",
     "pages/user/auth/auth",
     "pages/user/coupon/coupon",
     "pages/user/fault/fault",
