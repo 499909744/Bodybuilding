@@ -8,7 +8,9 @@ Page({
     longitude: '',
     textData: {},
     textShow: false,
-    controls: []
+    controls: [],
+    windowHeight: 0,
+    windowWidth: 0
   },
   /**
    * 点击坐标点出现详情
@@ -18,11 +20,37 @@ Page({
     var that = this;
     that.showMarkerInfo(markersData, id);
   },
+  controltap(e) {
+    var that = this;
+    if (e.controlId == 1) {
+      that.getCurrentLocation();
+    } else if (e.controlId == 2) {
+        wx.navigateTo({
+          url: '/pages/user/user',
+        })
+    }
+  },
   onLoad: function () {
     var that = this;
     that.getCurrentLocation();
     that.getGymList();
+    that.getSystemInfo();
     that.getControls();
+  },
+
+  /**
+   * 获取屏幕尺寸
+   */
+  getSystemInfo: function () {
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          windowHeight: res.windowHeight,
+          windowWidth: res.windowWidth
+        });
+      },
+    })
   },
   /**
    * 获取健身房详细内容
@@ -121,17 +149,30 @@ Page({
    */
   getControls: function () {
     var that = this;
-    var _controls = [{
-      id: 1,
-      iconPath: '../../images/map/location.png',
-      position: {
-        left: 0,
-        top: 300 - 50,
-        width: 50,
-        height: 50
+    var _controls = [
+      {
+        id: 1,
+        iconPath: '../../images/map/location.png',
+        position: {
+          left: 10,
+          top: that.data.windowHeight - that.data.windowHeight / 2.4,
+          width: 50,
+          height: 50
+        },
+        clickable: true
       },
-      clickable: true
-    }];
+      {
+        id: 2,
+        iconPath: '../../images/map/user.png',
+        position: {
+          left: that.data.windowWidth - 60,
+          top: that.data.windowHeight - that.data.windowHeight / 2.4,
+          width: 50,
+          height: 50
+        },
+        clickable: true
+      },
+    ];
     that.setData({
       controls: _controls
     });

@@ -1,4 +1,4 @@
-var host = 'http://192.168.1.101:1314'
+var host = 'https://xiao2.dandaojiuye.com/gym'
 
 var config = {
   host,
