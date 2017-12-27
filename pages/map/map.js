@@ -10,7 +10,8 @@ Page({
     textShow: false,
     controls: [],
     windowHeight: 0,
-    windowWidth: 0
+    windowWidth: 0,
+    circles: []
   },
   /**
    * 点击坐标点出现详情
@@ -20,14 +21,18 @@ Page({
     var that = this;
     that.showMarkerInfo(markersData, id);
   },
-  controltap(e) {
+  /**
+   * 点击控件
+   * @param e
+   */
+  controltap: function (e) {
     var that = this;
     if (e.controlId == 1) {
       that.getCurrentLocation();
     } else if (e.controlId == 2) {
-        wx.navigateTo({
-          url: '/pages/user/user',
-        })
+      wx.navigateTo({
+        url: '/pages/user/user',
+      })
     }
   },
   onLoad: function () {
@@ -37,7 +42,6 @@ Page({
     that.getSystemInfo();
     that.getControls();
   },
-
   /**
    * 获取屏幕尺寸
    */
@@ -71,18 +75,26 @@ Page({
   getCurrentLocation: function () {
     var that = this;
     wx.getLocation({
-      type: 'wgs84',
+      type: 'gcj02',
       success: function (res) {
-        var latitude = res.latitude
-        var longitude = res.longitude
-        var speed = res.speed
-        var accuracy = res.accuracy
+        var latitude = res.latitude;
+        var longitude = res.longitude;
+        var speed = res.speed;
+        var accuracy = res.accuracy;
         that.setData({
-          latitude: latitude
+          latitude: latitude,
+          longitude: longitude,
+          circles: [{
+            latitude: res.latitude,
+            longitude: res.longitude,
+            color: '#7cb5ec88',
+            fillColor: '#7cb5ec88',
+            radius: 3000,
+            strokeWidth: 1,
+          }]
         });
-        that.setData({
-          longitude: longitude
-        });
+        that.setData({});
+
       },
       fail: function (error) {
         console.log(error);
@@ -102,6 +114,7 @@ Page({
         'token_id': '1bf44795b55046c8be22088b1207e0f5'
       },
       success: function (res) {
+        console.log(res);
         markersData = res.data;
         var _markers = []
         for (var i = 0; i < res.data.length; i++) {
@@ -118,7 +131,12 @@ Page({
           _markers.push(marker)
         }
         that.setData({
-          markers: _markers
+          markers: _markers,
+          textData: {
+            name: markersData[0].name,
+            desc: markersData[0].gymItems
+          },
+          textShow: true
         });
       },
       fail: function (res) {
@@ -176,6 +194,14 @@ Page({
     that.setData({
       controls: _controls
     });
+  },
+  /**
+   * 跳转二维码
+   */
+  linkPlay: function () {
+    wx.navigateTo({
+      url: '/pages/play/play',
+    })
   }
 
 })

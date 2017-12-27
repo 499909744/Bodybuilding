@@ -9,7 +9,10 @@
     "pages/user/record/record",
     "pages/user/share/share",
     "pages/settlement/settlement",
-    "pages/payment/payment"
+    "pages/payment/payment",
+    "pages/play/play",
+    "pages/playing/playing",
+    "pages/playend/playend"
   ],
   "networkTimeout": {
     "request": 10000,
