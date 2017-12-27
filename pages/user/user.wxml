@@ -13,16 +13,19 @@
     <view bindtap="linkAuth">
       <image src="../../images/user/ren.png"></image>实名认证
       <view class="triangle-facing-right"></view>
-      <text class="authentication" wx:if="{{authUserInfo}}">已认证</text>
-      <text class="authentication colorRed" wx:if="{{!authUserInfo}}">待认证</text>
+      <text class="authentication" wx:if="{{authUserInfoIdCard}}">已认证</text>
+      <text class="authentication colorRed" wx:if="{{!authUserInfoIdCard}}">待认证</text>
     </view>
     <view bindtap="linkCoupon">
       <image src="../../images/user/quan.png"></image>优惠券
       <view class="triangle-facing-right"></view>
     </view>
-    <view bindtap="linkShare">
-      <image src="../../images/user/yao.png"></image>邀请好友
-      <view class="triangle-facing-right"></view>
+    <view>
+    邀请好友
+      <button open-type="share"  class='btn_share'>
+        <image src="../../images/user/yao.png"></image>邀请好友
+        <view class="triangle-facing-right"></view>
+      </button>
     </view>
     <view bindtap="linkFault">
       <image src="../../images/user/gu.png"></image>故障上报

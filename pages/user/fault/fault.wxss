@@ -5,6 +5,7 @@ textarea{
   margin-top: 20rpx;
   padding: 3% 3%;
   border: 1px solid #dedede;
+  border-radius:10rpx;
 }
 .margin_top40{
   margin-top: 40rpx;
@@ -15,4 +16,5 @@ textarea{
   height: 80rpx;
   border: 1px solid #dedede;
   padding: 0 20rpx;
+  border-radius:10rpx;
 }

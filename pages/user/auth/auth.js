@@ -7,7 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    realName:'',
+    idCard:'',
+    authUserInfoIdCard:''
   },
   /**
    *  点击确定
@@ -18,6 +20,10 @@ Page({
     const dataPara = e.detail.value;
     dataPara.mobile = "";
     that.saveUserInfo(dataPara);
+    that.setData({
+      realName: dataPara.realName,
+      idCard: dataPara.idCard
+    });
   },
   /**
    * 更新&&认证 保存用户信息
@@ -38,6 +44,7 @@ Page({
       data: dataPara,
       success: function (res) {
         if (res.statusCode == 200) {
+          app.globalData.authUserData.authUserInfoIdCard = true;
           wx.showModal({
             content: '认证成功',
             showCancel: false,
@@ -94,6 +101,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(app.globalData.authUserData)
+    this.setData({
+      realName: app.globalData.authUserData.realName,
+      idCard: app.globalData.authUserData.idCard,
+      authUserInfoIdCard: app.globalData.authUserData.idCard,
+    })
 
   },
 

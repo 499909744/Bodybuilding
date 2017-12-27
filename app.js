@@ -57,6 +57,13 @@ App({
           } else {
             that.globalData.authUserInfo = true;
           }
+          if (!res.data.idCard || !res.data.realName){
+            return;
+          }else{
+            that.globalData.authUserData.authUserInfoIdCard = true;
+            that.globalData.authUserData.realName = res.data.realName
+            that.globalData.authUserData.idCard = res.data.idCard
+          }
         } else {
           wx.showModal({
             content: '当前服务器繁忙，请稍后再试',
@@ -92,7 +99,13 @@ App({
   globalData: {
     token: null,
     userInfo: null,
-    authUserInfo: false
+    authUserInfo: false,
+    authUserData:{
+      authUserInfoIdCard: false,
+      realName:'',
+      idCard:''
+    }
+    
   }
 
 })
