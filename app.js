@@ -12,13 +12,12 @@ App({
       wx.login({
         success: function (data) {
           console.log(data.code);
-          console.log(tokenIdUrl)
           wx.request({
             url: tokenIdUrl + '?code=' + data.code,
             method: 'POST',
             success: function (res) {
-              console.log(res)
-              self.globalData.token = res.token
+              wx.setStorageSync('_token', res.data.token)
+              self.globalData.token = res.data.token
               self.getUserInfo();
             },
             fail: function (res) {
@@ -44,7 +43,7 @@ App({
       url: getUserInfoUrl,
       header: {
         "content-type": "application/json",
-        "token_id": "9f1fc10966b046dc9906520f9020ebc2"
+        "token_id": wx.getStorageSync('_token')
       },
       method: "GET",
       success: function (res) {
@@ -57,13 +56,17 @@ App({
           } else {
             that.globalData.authUserInfo = true;
           }
-          if (!res.data.idCard || !res.data.realName){
+          if (!res.data.idCard || !res.data.realName) {
             return;
-          }else{
+          } else {
             that.globalData.authUserData.authUserInfoIdCard = true;
             that.globalData.authUserData.realName = res.data.realName
             that.globalData.authUserData.idCard = res.data.idCard
           }
+        } else if (res.statusCode == 404) {
+          wx.redirectTo({
+            url: '/pages/login/login',
+          })
         } else {
           wx.showModal({
             content: '当前服务器繁忙，请稍后再试',
@@ -86,7 +89,12 @@ App({
   },
   onLaunch: function () {
     let that = this;
-    that.getUserTokenId();
+    if (!wx.getStorageSync('_token')) {
+      that.getUserTokenId();
+    }
+    if (!that.globalData.authUserInfo){
+      that.getUserInfo();
+    }
     if (!that.globalData.userInfo) {
       wx.getUserInfo({
         success: res => {
@@ -100,12 +108,12 @@ App({
     token: null,
     userInfo: null,
     authUserInfo: false,
-    authUserData:{
+    authUserData: {
       authUserInfoIdCard: false,
-      realName:'',
-      idCard:''
+      realName: '',
+      idCard: ''
     }
-    
+
   }
 
 })

@@ -1,1 +1,26 @@
-/* pages/playend/playend.wxss */
+.title {
+  text-align: center;
+  margin-top: 50rpx;
+  font-size: 50rpx;
+  font-weight: 900;
+}
+
+.img__content {
+  text-align: center;
+  margin-top: 100rpx;
+  width: 100%;
+}
+
+.img__content >image {
+  width: 500rpx;
+  height: 500rpx;
+}
+
+.ps {
+  margin-top: 100rpx;
+  margin-left: 50rpx;
+}
+
+.ps__tel {
+  color: #72ace3;
+}

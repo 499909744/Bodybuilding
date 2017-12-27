@@ -75,6 +75,8 @@ Page({
    * 健身中
    */
   linkPlaying:function(){
-      
+      wx.redirectTo({
+        url: '/pages/playing/playing',
+      })
   }
 })

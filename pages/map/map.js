@@ -1,4 +1,5 @@
 const getGymListUrl = require('../../config').getGymListUrl
+const app = getApp()
 
 var markersData = [];
 Page({
@@ -105,13 +106,14 @@ Page({
    * 获取健身房集合
    */
   getGymList: function () {
+    wx.showLoading()
     var that = this;
     wx.request({
       url: getGymListUrl,
       method: 'GET',
       header: {
         'content-type': 'application/json',
-        'token_id': '1bf44795b55046c8be22088b1207e0f5'
+        'token_id': wx.getStorageSync('_token')
       },
       success: function (res) {
         console.log(res);
@@ -141,6 +143,9 @@ Page({
       },
       fail: function (res) {
         console.log(res)
+      }, 
+      complete: function () {
+        wx.hideLoading();
       }
     })
   },

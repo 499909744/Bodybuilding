@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/map/map",
+
+    "pages/playing/playing",
     "pages/user/user",
     "pages/login/login",
     "pages/user/auth/auth",
@@ -11,7 +13,7 @@
     "pages/settlement/settlement",
     "pages/payment/payment",
     "pages/play/play",
-    "pages/playing/playing",
+    
     "pages/playend/playend"
   ],
   "networkTimeout": {

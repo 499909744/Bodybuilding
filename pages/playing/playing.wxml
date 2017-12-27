@@ -1,2 +1,13 @@
-<!--pages/playing/playing.wxml-->
-<text>pages/playing/playing.wxml</text>
+<view class='time'>
+  <text>进入时间\n</text>
+  <text>2017-12-28 9:00</text>
+</view>
+
+<button class='btm' type="primary" size="default" bindtap='pay'>申请出舱</button>
+
+<view class='wxts'>
+  <text class='ps__title'>温馨提示:\n</text>
+  <text class='ps__title'>1.计费方式:不满1小时,按1小时计算\n</text>
+  <text bindtap='call'>2.异常情况,请拨打:<text class='ps__tel'>88888888\n</text></text>
+  <text class='ps__title'>3.最终解释权归 享跑盒子 所有</text>
+</view>

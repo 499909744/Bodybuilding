@@ -1,1 +1,17 @@
 /* pages/playing/playing.wxss */
+.time{
+  text-align: center;
+  font-size: 50rpx;
+  margin-top: 150rpx;
+}
+
+.btm{
+  margin-top: 150rpx;
+}
+.wxts{
+  margin-top: 150rpx;
+  margin-left: 50rpx;
+}
+.ps__tel {
+  color: #72ace3;
+}

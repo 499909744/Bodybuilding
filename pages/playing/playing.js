@@ -1,4 +1,6 @@
 // pages/playing/playing.js
+const app = getApp()
+
 Page({
 
   /**
@@ -62,5 +64,18 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  /**
+   * 拨打电话
+   */
+  call: function () {
+    wx.makePhoneCall({
+      phoneNumber: '88888888' //仅为示例，并非真实的电话号码
+    })
+  },
+  pay:function(){
+    wx.navigateTo({
+      url: '/pages/payment/payment',
+    })
   }
 })
