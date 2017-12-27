@@ -45,6 +45,9 @@
   margin-right: 10rpx;
   color: #aaa;
 }
+.colorRed{
+  color: #f00;
+}
 .triangle-facing-right {
   display: inline-block;
   float: right;

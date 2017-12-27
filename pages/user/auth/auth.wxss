@@ -1,12 +1,14 @@
 /* page/user/auth/auth.wxss */
-.a_section{
-  margin-top: 30rpx;
+.margin_top40 {
+  margin-top: 40rpx;
 }
-.a_section input {
-  padding-left: 4%;
-  border: 1px solid #dfdfdf;
-  border-radius: 5px;
+
+input {
+  display: block;
+  margin-top: 10rpx;
   height: 80rpx;
-  width: 96%;
-  margin-bottom: 4%;
+  border: 1px solid #dfdfdf;
+  border-radius: 10rpx;
+  padding: 0 20rpx;
 }
+

@@ -1,13 +1,25 @@
 <!--page/user/auth/auth.wxml-->
 <view class="containerPadding">
-  <view class="a_section">
-    <input type="text" placeholder="请输入姓名" />
-    <input type="idcard" placeholder="身份证输入键盘" />
-  </view>
-  <view class="bottomBtn">
-    <button type="primary" size="default" loading="{{loading}}" disabled="{{disabled}}" bindtap="primary">
-    <image src="../../../images/user/btnRen.png"></image>
-    确定 
-    </button>
-  </view>
+  <form bindsubmit="formSubmit">
+    <view class="margin_top40">
+      <view>姓名</view>
+      <view>
+        <input name="realName" class="tel_input" placeholder="请输入姓名" />
+      </view>
+    </view>
+
+    <view class="margin_top40">
+      <view>身份证号</view>
+      <view>
+        <input name="idCard" class="tel_input" type="idcard" maxlength="18" placeholder="请输入身份证号" />
+      </view>
+    </view>
+
+    <view class="bottomBtn">
+      <button type="primary" size="default" loading="{{loading}}"  formType="submit">
+        <image src="../../../images/user/btnRen.png"></image>
+        确定
+      </button>
+    </view>
+  </form>
 </view>

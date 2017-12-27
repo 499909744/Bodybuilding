@@ -44,14 +44,16 @@ App({
       url: getUserInfoUrl,
       header: {
         "content-type": "application/json",
-        "token_id": app.globalData.token_id
+        "token_id": "9f1fc10966b046dc9906520f9020ebc2"
       },
       method: "GET",
       success: function (res) {
         console.log(res);
         if (res.statusCode == 200) {
           if (!res.data.mobile) {
-           
+            wx.redirectTo({
+              url: '/pages/login/login',
+            })
           } else {
             that.globalData.authUserInfo = true;
           }
@@ -77,9 +79,7 @@ App({
   },
   onLaunch: function () {
     let that = this;
-    // if (!that.globalData.token_id) {
-    //   that.getUserTokenId();
-    // }
+    that.getUserTokenId();
     if (!that.globalData.userInfo) {
       wx.getUserInfo({
         success: res => {
@@ -92,7 +92,7 @@ App({
   globalData: {
     token: null,
     userInfo: null,
-    authUserInfo:false
+    authUserInfo: false
   }
 
 })

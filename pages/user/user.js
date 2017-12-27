@@ -4,7 +4,8 @@ const app = getApp()
 
 Page({
   data: {
-    userInfo: {}
+    userInfo: {},
+    authUserInfo: ""
   },
   //事件处理函数
   linkRecord: function () {
@@ -34,7 +35,8 @@ Page({
   },
   onLoad: function () {
     this.setData({
-      userInfo: app.globalData.userInfo
+      userInfo: app.globalData.userInfo,
+      authUserInfo: app.globalData.authUserInfo,
     })
   }
 })

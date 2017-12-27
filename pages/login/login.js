@@ -2,14 +2,15 @@
 //获取应用实例
 const app = getApp()
 const saveUserInfoUrl = require('../../config').saveUserInfoUrl;
-
+const sendMsgUrl = require('../../config').sendMsgUrl;
+const authMsgUrl = require('../../config').authMsgUrl;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    timer:'',
+    timer: '',
     second: '',
     inputPhone: '',
     inputVcode: '',
@@ -35,6 +36,7 @@ Page({
         }
       });
     } else {
+      this.sendMsg();
       //显示倒计时
       this.setData({
         second: 60
@@ -67,14 +69,14 @@ Page({
       url: sendMsgUrl,
       header: {
         "content-type": "application/json",
-        "token_id": app.globalData.token_id
+        "token_id": "9f1fc10966b046dc9906520f9020ebc2"
       },
       method: "POST",
       data: {
         "mobile": that.data.inputPhone
       },
       success: function (res) {
-        
+       console.log(res);
         if (res.statusCode == 200) {
           that.setData({
             serial: res.data.result
@@ -114,7 +116,7 @@ Page({
       url: authMsgUrl,
       header: {
         "content-type": "application/json",
-        "token_id": app.globalData.token_id
+        "token_id": "9f1fc10966b046dc9906520f9020ebc2"
       },
       method: "POST",
       data: {
@@ -125,7 +127,15 @@ Page({
       success: function (res) {
         console.log(res);
         if (res.statusCode == 200) {
-          that.saveUserInfo();
+          if (!app.globalData.authUserInfo){
+            console.log(app.globalData.authUserInfo)
+            that.saveUserInfo();
+          }else{
+            wx.redirectTo({
+              url: '/pages/map/map',
+            })
+          }
+       
         } else if (res.statusCode == 400) {
           wx.showModal({
             content: '效验失败',
@@ -160,9 +170,9 @@ Page({
 
     })
   },
-/**
- * 更新&&认证 保存用户信息
- */
+  /**
+   * 更新&&认证 保存用户信息
+   */
   saveUserInfo: function () {
     let that = this;
     wx.showLoading({
@@ -173,7 +183,7 @@ Page({
       url: saveUserInfoUrl,
       header: {
         "content-type": "application/json",
-        "token_id": app.globalData.token_id
+        "token_id": "9f1fc10966b046dc9906520f9020ebc2"
       },
       method: "POST",
       data: {
@@ -244,7 +254,7 @@ Page({
       inputVcode: e.detail.value
     })
   },
-  linkMap:function(){
+  linkMap: function () {
     if (!this.data.inputPhone || !this.data.inputVcode) {
       wx.showModal({
         content: '请补全信息',
@@ -256,17 +266,18 @@ Page({
         }
       });
     } else {
-      // this.authMsg();
-      wx.redirectTo({
-        url: '/pages/map/map',
-      })
+      this.authMsg();
     }
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    if (app.globalData.authUserInfo){
+      wx.redirectTo({
+        url: '/pages/map/map',
+      })
+    }
   },
 
   /**

@@ -1,16 +1,12 @@
 <!--page/user/record/record.wxml-->
-<view class="r_container">
+<view class="r_container" wx:if="{{recordLists.content}}" > 
   <view class="r_title">
     <text>健身记录</text>
   </view>
-  <view class="r_content">
+  <view class="r_content" wx:for="{{recordLists.content}}" wx:key="*this">
     <view class="r_recordText">
       <view class="dot"></view>
-      <text>2017-10-16 19:33:03 共消费1元</text>
-    </view>
-    <view class="r_recordText">
-      <view class="dot"></view>
-      <text>2017-10-16 19:33:03 共消费1元</text>
+      <text>{{item.enterTime}} 共消费 {{item.price}} 元</text>
     </view>
   </view>
 </view>
