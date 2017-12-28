@@ -20,10 +20,6 @@ Page({
     const dataPara = e.detail.value;
     dataPara.mobile = "";
     that.saveUserInfo(dataPara);
-    that.setData({
-      realName: dataPara.realName,
-      idCard: dataPara.idCard
-    });
   },
   /**
    * 更新&&认证 保存用户信息
@@ -38,7 +34,7 @@ Page({
       url: saveUserInfoUrl,
       header: {
         "content-type": "application/json",
-        "token_id": wx.getStorageSync('_token')
+        "token_id": "9f1fc10966b046dc9906520f9020ebc2"
       },
       method: "POST",
       data: dataPara,
