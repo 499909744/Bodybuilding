@@ -20,7 +20,7 @@ Page({
       url: paymentUrl,
       method: 'POST',
       data: {
-        'id': '2c9314366098d19b016098d28fbb0000'
+        'id': '402882e56098b792016098b83fd40000'
       },
       header: {
         'content-type': 'application/json',
