@@ -123,12 +123,11 @@ Page({
         console.log(res);
         if (res.statusCode == 200) {
           if (!app.globalData.authUserInfo) {
-            console.log(app.globalData.authUserInfo)
             wx.navigateTo({
               url: '/pages/login/auth/auth?mobile=' + that.data.inputPhone,
             })
           } else {
-            wx.redirectTo({
+            wx.reLaunch({
               url: '/pages/map/map',
             })
           }
@@ -210,7 +209,6 @@ Page({
   init: function (res) {
     var that = this;
     if (res.statusCode == 200) {
-      console.log(res);
       if (!res.data.mobile) {
       } else {
         app.globalData.authUserInfo = true;

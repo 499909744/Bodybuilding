@@ -8,6 +8,7 @@ App({
   getUserTokenId: function (successFun) {
     var self = this
     if (self.globalData.token) {
+        self.getUserInfo(successFun)
     } else {
       wx.login({
         success: function (data) {
