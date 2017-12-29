@@ -63,7 +63,7 @@ Page({
       url: reportFaultUrl,
       header: {
         "content-type": "application/json",
-        "token_id": wx.getStorageSync('_token')
+        "token_id": app.globalData.token
       },
       method: "POST",
       data: dataPara,

@@ -24,7 +24,7 @@ Page({
       url: scanRecordListUrl,
       header: {
         "content-type": "application/json",
-        "token_id": wx.getStorageSync('_token')
+        "token_id": app.globalData.token
       },
       method: "get",
       success: function (res) {

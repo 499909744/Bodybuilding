@@ -69,7 +69,7 @@ Page({
       url: sendMsgUrl,
       header: {
         "content-type": "application/json",
-        "token_id": wx.getStorageSync('_token')
+        "token_id": app.globalData.token
       },
       method: "POST",
       data: {
@@ -116,7 +116,7 @@ Page({
       url: authMsgUrl,
       header: {
         "content-type": "application/json",
-        "token_id": wx.getStorageSync('_token')
+        "token_id": app.globalData.token
       },
       method: "POST",
       data: {
@@ -183,7 +183,7 @@ Page({
       url: saveUserInfoUrl,
       header: {
         "content-type": "application/json",
-        "token_id": wx.getStorageSync('_token')
+        "token_id": app.globalData.token
       },
       method: "POST",
       data: {

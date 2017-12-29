@@ -37,11 +37,40 @@ Page({
     }
   },
   onLoad: function () {
+    app.getUserTokenId(this.init)
+  },
+  /**
+   * 初始化
+   */
+  init: function (res) {
     var that = this;
-    that.getCurrentLocation();
-    that.getGymList();
-    that.getSystemInfo();
-    that.getControls();
+    if (res.statusCode == 200) {
+      if (!res.data.mobile) {
+        wx.reLaunch({
+          url: '/pages/login/login',
+        })
+      } else {
+        app.globalData.authUserInfo = true;
+        that.getCurrentLocation();
+        that.getGymList();
+        that.getSystemInfo();
+        that.getControls();
+      }
+    } else if (res.statusCode == 404) {
+      wx.reLaunch({
+        url: '/pages/login/login',
+      })
+    } else {
+      wx.showModal({
+        content: '当前服务器繁忙，请稍后再试',
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      });
+    }
   },
   /**
    * 获取屏幕尺寸
@@ -113,7 +142,7 @@ Page({
       method: 'GET',
       header: {
         'content-type': 'application/json',
-        'token_id': wx.getStorageSync('_token')
+        'token_id': app.globalData.token
       },
       success: function (res) {
         console.log(res);
@@ -143,7 +172,7 @@ Page({
       },
       fail: function (res) {
         console.log(res)
-      }, 
+      },
       complete: function () {
         wx.hideLoading();
       }
