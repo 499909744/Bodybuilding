@@ -7,9 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    realName:'',
-    idCard:'',
-    authUserInfoIdCard:''
+    mobile: ''
   },
   /**
    *  点击确定
@@ -18,8 +16,37 @@ Page({
     console.log(e.detail.value);
     let that = this;
     const dataPara = e.detail.value;
-    dataPara.mobile = "";
-    that.saveUserInfo(dataPara);
+    dataPara.mobile = that.data.mobile;
+    // 正则验证姓名 和 身份证号
+    const reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+    if (!dataPara.realName) {
+      wx.showModal({
+        content: '请输入姓名',
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      });
+
+    } else if (!reg.test(dataPara.idCard)) {
+
+      wx.showModal({
+        content: '身份证输入有误，请重新输入',
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      });
+
+    } else {
+      console.log(dataPara);
+      that.saveUserInfo(dataPara);
+    }
+
   },
   /**
    * 更新&&认证 保存用户信息
@@ -34,20 +61,20 @@ Page({
       url: saveUserInfoUrl,
       header: {
         "content-type": "application/json",
-        "token_id": "9f1fc10966b046dc9906520f9020ebc2"
+        "token_id": app.globalData.token
       },
       method: "POST",
       data: dataPara,
       success: function (res) {
         if (res.statusCode == 200) {
-          app.globalData.authUserData.authUserInfoIdCard = true;
+          app.globalData.authUserInfo = true;
           wx.showModal({
             content: '认证成功',
             showCancel: false,
             success: function (res) {
               if (res.confirm) {
-                wx.navigateBack({
-                  delta: 1
+                wx.reLaunch({
+                  url: '/pages/map/map',
                 })
               }
             }
@@ -97,13 +124,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData.authUserData)
     this.setData({
-      realName: app.globalData.authUserData.realName,
-      idCard: app.globalData.authUserData.idCard,
-      authUserInfoIdCard: app.globalData.authUserData.idCard,
-    })
-
+      mobile: options.mobile
+    });
   },
 
   /**

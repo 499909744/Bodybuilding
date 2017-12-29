@@ -28,7 +28,6 @@ Page({
       },
       method: "get",
       success: function (res) {
-        console.log(res);
         if (res.statusCode == 200) {
           let content = res.data.content;
           content.forEach(function (value, index) {
