@@ -34,11 +34,12 @@ Page({
           'signType': 'MD5',
           'paySign': res.data.paySign,
           'success': function (res) {
-            setTimeout(function () {
-              wx.redirectTo({
-                url: '/pages/playend/playend',
-              })
-            }, 1000)
+            console.log(res);
+            // setTimeout(function () {
+            //   wx.redirectTo({
+            //     url: '/pages/playend/playend',
+            //   })
+            // }, 1000)
           }, 
           'fail': function (res) {
             setTimeout(function () {
