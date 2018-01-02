@@ -5,7 +5,6 @@ const app = getApp()
 Page({
   data: {
     userInfo: {},
-    authUserInfoIdCard: ""
   },
   //事件处理函数
   linkRecord: function () {
@@ -13,38 +12,34 @@ Page({
       url: '../user/record/record'
     })
   },
-  linkAuth: function () {
-    wx.navigateTo({
-      url: '../user/auth/auth'
-    })
-  },
   linkCoupon: function () {
     wx.navigateTo({
       url: '../user/coupon/coupon'
     })
   },
-  // linkShare: function () {
-  //   wx.navigateTo({
-  //     url: '../user/share/share'
-  //   })
-  // },
   linkFault: function () {
     wx.navigateTo({
       url: '../user/fault/fault'
     })
   },
   onLoad: function () {
-    this.setData({
-      userInfo: app.globalData.userInfo,
-      authUserInfoIdCard: app.globalData.authUserData.authUserInfoIdCard
-    })
+    if (!app.globalData.userInfo) {
+      wx.getUserInfo({
+        success: res => {
+          console.log(res);
+          this.setData({
+            userInfo: res.userInfo
+          })
+        }
+      })
+    }
   },
   /**
   * 用户点击右上角分享
   */
   onShareAppMessage: function () {
     return {
-      title: '都来健身',
+      title: '享跑盒子',
       path: '/pages/map/map',
       imageUrl: '../../images/user/yun.png',
       success: function (res) {

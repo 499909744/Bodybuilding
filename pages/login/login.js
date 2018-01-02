@@ -16,11 +16,6 @@ Page({
     inputVcode: '',
     serial: ''
   },
-  linkMap: function () {
-    wx.navigateTo({
-      url: '../map/map'
-    })
-  },
   /**
    * 倒计时
    */
@@ -76,7 +71,7 @@ Page({
         "mobile": that.data.inputPhone
       },
       success: function (res) {
-       console.log(res);
+        console.log(res);
         if (res.statusCode == 200) {
           that.setData({
             serial: res.data.result
@@ -127,15 +122,16 @@ Page({
       success: function (res) {
         console.log(res);
         if (res.statusCode == 200) {
-          if (!app.globalData.authUserInfo){
-            console.log(app.globalData.authUserInfo)
-            that.saveUserInfo();
-          }else{
-            wx.redirectTo({
+          if (!app.globalData.authUserInfo) {
+            wx.navigateTo({
+              url: '/pages/login/auth/auth?mobile=' + that.data.inputPhone,
+            })
+          } else {
+            wx.reLaunch({
               url: '/pages/map/map',
             })
           }
-       
+
         } else if (res.statusCode == 400) {
           wx.showModal({
             content: '效验失败',
@@ -160,74 +156,6 @@ Page({
           });
         }
 
-      },
-      fail: function (res) {
-        console.log(res);
-      },
-      complete: function () {
-        wx.hideLoading()
-      }
-
-    })
-  },
-  /**
-   * 更新&&认证 保存用户信息
-   */
-  saveUserInfo: function () {
-    let that = this;
-    wx.showLoading({
-      title: '加载中',
-    })
-
-    wx.request({
-      url: saveUserInfoUrl,
-      header: {
-        "content-type": "application/json",
-        "token_id": app.globalData.token
-      },
-      method: "POST",
-      data: {
-        "mobile": that.data.inputPhone,
-        "idCard": "",
-        "realName": ""
-      },
-      success: function (res) {
-        if (res.statusCode == 200) {
-          app.globalData.authUserInfo = true
-          wx.redirectTo({
-            url: '/pages/map/map',
-          })
-        } else if (res.data.code == "notTrueInfo.auth.userInfo.NotRule ") {
-          wx.showModal({
-            content: '信息错误',
-            showCancel: false,
-            success: function (res) {
-              if (res.confirm) {
-
-              }
-            }
-          });
-        } else if (res.data.code == "repeatedAuth.auth.userInfo.NotRule") {
-          wx.showModal({
-            content: '重复认证',
-            showCancel: false,
-            success: function (res) {
-              if (res.confirm) {
-
-              }
-            }
-          });
-        } else {
-          wx.showModal({
-            content: '当前服务器繁忙，请稍后再试',
-            showCancel: false,
-            success: function (res) {
-              if (res.confirm) {
-                console.log('用户点击确定')
-              }
-            }
-          });
-        }
       },
       fail: function (res) {
         console.log(res);
@@ -273,13 +201,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (app.globalData.authUserInfo){
-      wx.redirectTo({
-        url: '/pages/map/map',
-      })
+    app.getUserTokenId(this.init);
+  },
+  /**
+   * 初始化
+   */
+  init: function (res) {
+    var that = this;
+    if (res.statusCode == 200) {
+      if (!res.data.mobile) {
+      } else {
+        app.globalData.authUserInfo = true;
+        wx.reLaunch({
+          url: '/pages/map/map',
+        })
+      }
+    } else {
+      wx.showModal({
+        content: '当前服务器繁忙，请稍后再试',
+        showCancel: false,
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      });
     }
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -1,12 +1,17 @@
 <!--page/user/record/record.wxml-->
-<view class="r_container" wx:if="{{recordLists.content}}" > 
-  <view class="r_title">
-    <text>健身记录</text>
-  </view>
-  <view class="r_content" wx:for="{{recordLists.content}}" wx:key="*this">
-    <view class="r_recordText">
-      <view class="dot"></view>
-      <text>{{item.enterTime}} 共消费 {{item.price}} 元</text>
+<block wx:if="{{recordLists.content.length===0}}">
+ <view class="noRecord">暂无健身记录</view>
+</block>
+<block wx:else>
+  <view class="r_container">
+    <view class="r_title">
+      <text>健身记录</text>
+    </view>
+    <view class="r_content" wx:for="{{recordLists.content}}" wx:key="*this">
+      <view class="r_recordText">
+        <view class="dot"></view>
+        <text>{{item.enterTime}} 共消费 {{item.price}} 元</text>
+      </view>
     </view>
   </view>
-</view>
+</block>

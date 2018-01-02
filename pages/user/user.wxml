@@ -10,11 +10,10 @@
       <image src="../../images/user/yun.png"></image>健身记录
       <view class="triangle-facing-right"></view>
     </view>
-    <view bindtap="linkAuth">
+    <view>
       <image src="../../images/user/ren.png"></image>实名认证
       <view class="triangle-facing-right"></view>
-      <text class="authentication" wx:if="{{authUserInfoIdCard}}">已认证</text>
-      <text class="authentication colorRed" wx:if="{{!authUserInfoIdCard}}">待认证</text>
+      <text class="authentication">已认证</text>
     </view>
     <view bindtap="linkCoupon">
       <image src="../../images/user/quan.png"></image>优惠券
