@@ -46,7 +46,6 @@ App({
       },
       method: "GET",
       success: function (res) {
-        console.log(res);
         that.globalData.phone = res.data.mobile;
         if (typeof successFun == 'function') {
           successFun(res);
