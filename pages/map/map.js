@@ -37,6 +37,7 @@ Page({
     }
   },
   onLoad: function () {
+    wx.showLoading()
     app.getUserTokenId(this.init)
   },
   /**
@@ -94,7 +95,8 @@ Page({
     that.setData({
       textData: {
         name: data[i].name,
-        desc: data[i].gymItems
+        desc: data[i].gymItems,
+        price: data[i].price
       },
       textShow: true
     });
@@ -135,7 +137,6 @@ Page({
    * 获取健身房集合
    */
   getGymList: function () {
-    wx.showLoading()
     var that = this;
     wx.request({
       url: getGymListUrl,
@@ -165,7 +166,8 @@ Page({
           markers: _markers,
           textData: {
             name: markersData[0].name,
-            desc: markersData[0].gymItems
+            desc: markersData[0].gymItems,
+            price: markersData[0].price
           },
           textShow: true
         });
@@ -234,7 +236,7 @@ Page({
    */
   linkPlay: function () {
     wx.navigateTo({
-      url: '/pages/play/play',
+      url: '/pages/choosePay/choosePay',
     })
   }
 

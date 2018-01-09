@@ -1,1 +1,21 @@
 /* pages/payment/payment.wxss */
+
+.content {
+  width: 100%;
+  margin: auto;
+}
+
+.can {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  margin-left: -150px;
+  margin-top: 20%;
+}
+
+.tit {
+  margin: atuo;
+  text-align: center;
+  font-size: 35rpx;
+}

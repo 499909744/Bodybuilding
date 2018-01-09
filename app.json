@@ -2,6 +2,7 @@
   "pages": [
     "pages/map/map",
     "pages/login/login",
+    "pages/choosePay/choosePay",
     "pages/login/auth/auth",
     "pages/user/user",
     "pages/user/coupon/coupon",

@@ -1,1 +1,6 @@
-
+<view hidden="{{canvasHidden}}" class='content'>
+  <view class='tit'>
+    <text>请使用二维码进入健身舱</text>
+  </view>
+  <canvas class='can' canvas-id="mycanvas" />
+</view>
