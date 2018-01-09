@@ -1,0 +1,4 @@
+<view class="title">健身须知</view>
+
+
+<button type="primary" bindtap='goPay'>¥5元/小时</button>
