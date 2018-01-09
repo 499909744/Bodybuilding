@@ -216,6 +216,8 @@ Page({
           url: '/pages/map/map',
         })
       }
+    }else if(res.statusCode == 404){
+
     } else {
       wx.showModal({
         content: '当前服务器繁忙，请稍后再试',
