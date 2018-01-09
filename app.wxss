@@ -60,3 +60,6 @@ page {
   vertical-align: middle;
   margin-bottom: 10rpx;
 }
+button{
+  background-color: #000 !important;
+}

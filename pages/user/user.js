@@ -5,6 +5,7 @@ const app = getApp()
 Page({
   data: {
     userInfo: {},
+    phone:''
   },
   //事件处理函数
   linkRecord: function () {
@@ -28,7 +29,8 @@ Page({
         success: res => {
           console.log(res);
           this.setData({
-            userInfo: res.userInfo
+            userInfo: res.userInfo,
+            phone: app.globalData.phone
           })
         }
       })

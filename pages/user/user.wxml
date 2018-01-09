@@ -2,7 +2,7 @@
 <view class="container">
   <view class="userinfoImg">
     <image wx:if="{{userInfo.avatarUrl}}" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">13488888888</text>
+    <text wx:if="{{phone}}" class="userinfo-nickname">{{phone}}</text>
     <text class="userinfo-nickname">信用积分：100</text>
   </view>
   <view class="userinfo">

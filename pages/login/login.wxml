@@ -1,7 +1,7 @@
 <view class="page">
 
   <view class="view-logo">
-    <image src="../../images/login/logo.jpg" />
+    <image src="../../images/login/login.jpg" />
   </view>
 
   <view class="page__bd">

@@ -68,6 +68,7 @@ Page({
       success: function (res) {
         if (res.statusCode == 200) {
           app.globalData.authUserInfo = true;
+          app.globalData.phone = that.data.mobile;
           wx.showModal({
             content: '认证成功',
             showCancel: false,
