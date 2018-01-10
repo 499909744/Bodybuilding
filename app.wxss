@@ -36,6 +36,7 @@ page {
   text-align: left;
   font-size: 14px;
 }
+
 .container {
   height: 100%;
   display: flex;
@@ -44,22 +45,27 @@ page {
   justify-content: space-between;
   padding: 50rpx 0;
   box-sizing: border-box;
-} 
+}
+
 .containerPadding {
   height: 100%;
   padding: 0 5%;
 }
-.bottomBtn{
+
+.bottomBtn {
   width: 90%;
   position: absolute;
   bottom: 100rpx;
 }
-.bottomBtn image{
+
+.bottomBtn image {
   width: 60rpx;
-  height:60rpx;
+  height: 60rpx;
   vertical-align: middle;
   margin-bottom: 10rpx;
 }
-button{
+
+button {
   background-color: #000 !important;
+  border-radius: 0;
 }

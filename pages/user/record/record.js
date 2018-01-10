@@ -28,6 +28,7 @@ Page({
       },
       method: "get",
       success: function (res) {
+        console.log(res);
         if (res.statusCode == 200) {
           let content = res.data.content;
           content.forEach(function (value, index) {
@@ -128,5 +129,14 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  /**
+   * 健身详情
+   */
+  goEr: function (e) {
+    let str = JSON.stringify(e.currentTarget.dataset.er);
+    wx.navigateTo({
+      url: `/pages/playend/playend?item=${str}`,
+    })
   }
 })

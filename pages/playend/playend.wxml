@@ -1,14 +1,20 @@
-<view class='title'>
-  <text>请使用二维码离开健身房</text>
-</view>
+<view hidden="{{canvasHidden}}" class='content'>
+  <view class='tit'>
+    <text>健身记录详情</text>
+  </view>
+  <canvas class='can' canvas-id="mycanvas" />
 
-<view class='img__content' bindtap='linkPlaying'>
-  <image src='../../images/play/2wm.png' />
-</view>
+  <view class='zy'>
+    <text>订单编号: {{info.serialsNo}}\n</text>
+    <text>支付金额: {{info.price}}元\n</text>
+    <text>支付时间: {{payTime}}\n</text>
+    <text wx:if="{{info.status == 3}}">使用状态: 未使用\n</text>
+    <text wx:if="{{info.status == 5}}">使用状态: 已使用\n</text>
 
-<view class='ps'>
-  <text class='ps__title'>温馨提示:\n</text>
-  <text class='ps__title'>1.计费方式:不满1小时,按1小时计算\n</text>
-  <text bindtap='call'>2.异常情况,请拨打:<text class='ps__tel'>88888888\n</text></text>
-  <text class='ps__title'>3.最终解释权归 享跑盒子 所有</text>
+    <text wx:if="{{info.useCoupon == null || info.useCoupon == 1}}">是否使用优惠券: 未使用</text>
+    <text wx:if="{{info.useCoupon == 2}}">是否使用优惠券: 已使用</text>
+
+  </view>
+
+  <button class='btnn' type="primary" bindtap='back'>返回</button>
 </view>

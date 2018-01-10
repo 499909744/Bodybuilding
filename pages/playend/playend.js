@@ -1,18 +1,26 @@
-// pages/play/play.js
+var QR = require("../utils/qrcode.js");
+const utils = require('../utils/utils.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    info: {},
+    payTime:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let _info = JSON.parse(options.item);
+    this.setData({
+      info: _info,
+      payTime: utils.toDate(_info.payTime)
+    })
+    this.createQrCode(_info.visitQrCode, "mycanvas", 300, 300); 
   },
 
   /**
@@ -77,6 +85,20 @@ Page({
   linkPlaying: function () {
     wx.redirectTo({
       url: '/pages/map/map',
+    })
+  },
+  createQrCode: function (url, canvasId, cavW, cavH) {
+    //调用插件中的draw方法，绘制二维码图片
+    QR.api.draw(url, canvasId, cavW, cavH);
+    this.setData({
+      canvasHidden: false
+    });
+    //setTimeout(() => { this.canvasToTempImage(); }, 1000);
+
+  },
+  back: function () {
+    wx.navigateBack({
+      delta: 1
     })
   }
 })
