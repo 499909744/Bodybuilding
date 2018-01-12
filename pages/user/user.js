@@ -5,12 +5,24 @@ const app = getApp()
 Page({
   data: {
     userInfo: {},
-    phone:''
+    phone:'',
+    vip:'未开通'
   },
   //事件处理函数
   linkRecord: function () {
     wx.navigateTo({
       url: '../user/record/record'
+    })
+  },
+  refund:function(){
+    wx.showModal({
+      content: '退还押金请联系客服: 029-88888888',
+      showCancel: false,
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } 
+      }
     })
   },
   linkCoupon: function () {

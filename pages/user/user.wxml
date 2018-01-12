@@ -2,12 +2,20 @@
 <view class="container">
   <view class="userinfoImg">
     <image wx:if="{{userInfo.avatarUrl}}" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <view class="vipImg">
+      <image src="../../images/user/VIP.png"></image>
+      我的会员：{{vip}}
+    </view>
     <text wx:if="{{phone}}" class="userinfo-nickname">{{phone}}</text>
     <text class="userinfo-nickname">信用积分：100</text>
   </view>
   <view class="userinfo">
     <view bindtap="linkRecord">
       <image src="../../images/user/yun.png"></image>健身记录
+      <view class="triangle-facing-right"></view>
+    </view>
+    <view bindtap="refund">
+      <image src="../../images/user/tui.png"></image>退还押金
       <view class="triangle-facing-right"></view>
     </view>
     <view>
@@ -20,8 +28,8 @@
       <view class="triangle-facing-right"></view>
     </view>
     <view>
-    邀请好友
-      <button open-type="share"  class='btn_share'>
+      邀请好友
+      <button open-type="share" class='btn_share'>
         <image src="../../images/user/yao.png"></image>邀请好友
         <view class="triangle-facing-right"></view>
       </button>

@@ -1,10 +1,11 @@
 {
   "pages": [
+    "pages/user/user",
+    "pages/login/useConvention/useConvention",
     "pages/map/map",
     "pages/login/login",
     "pages/choosePay/choosePay",
     "pages/login/auth/auth",
-    "pages/user/user",
     "pages/user/coupon/coupon",
     "pages/user/fault/fault",
     "pages/user/record/record",

@@ -1,0 +1,4 @@
+/* pages/login/useConvention/useConvention.wxss */
+.page{
+  padding: 0 30rpx;
+}

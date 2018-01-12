@@ -18,7 +18,7 @@
   margin-top: 10rpx;
 }
 
-.userinfoImg .userinfo-nickname:nth-of-type(1) {
+.userinfoImg .userinfo-nickname:nth-of-type(2) {
   font-weight: bold;
 }
 
@@ -88,9 +88,22 @@
   font-size: 16px;
   line-height: 1;
   padding: 30rpx 40rpx 20rpx 30rpx;
-  background-color:#f9f9f9 !important;
+  background-color: #f9f9f9 !important;
 }
 
 .btn_share::after {
-   border: none; 
+  border: none;
+}
+
+.vipImg {
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.vipImg image {
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  float: left;
+  margin:10rpx 10rpx 0 0;
 }
