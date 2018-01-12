@@ -29,6 +29,18 @@ Page({
         "token_id": app.globalData.token
       },
       success: function (res) {
+        if (res.data.visitQrCode){
+          wx.showModal({
+            content: '首单免费体验哦',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                that.createQrCode(res.data.visitQrCode, "mycanvas", 300, 300);              
+              }
+            }
+          });
+          return;
+        }
         wx.requestPayment({
           'timeStamp': res.data.timeStamp,
           'nonceStr': res.data.nonceStr,
@@ -85,6 +97,11 @@ Page({
       complete: function () {
 
       }
+    })
+  },
+  back:function(){
+    wx.navigateTo({
+      url: '/pages/user/user',
     })
   },
   /**

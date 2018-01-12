@@ -121,7 +121,7 @@ Page({
             longitude: res.longitude,
             color: '#7cb5ec88',
             fillColor: '#7cb5ec88',
-            radius: 3000,
+            radius: 1000,
             strokeWidth: 1,
           }]
         });
