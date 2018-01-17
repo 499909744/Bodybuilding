@@ -31,10 +31,6 @@ button {
   padding-right: 0;
 }
 
-button.bg_blue{
-  background-color: #0075c2 !important;
-}
-
 .readed {
   clear: both;
   margin-top: 20rpx;

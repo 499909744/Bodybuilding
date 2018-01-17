@@ -66,6 +66,6 @@ page {
 }
 
 button {
-  background-color: #000 !important;
+  background-color: #0075c2 !important;
   border-radius: 0;
 }
