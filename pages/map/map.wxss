@@ -34,7 +34,7 @@ text {
   height: 100rpx;
   position: absolute;
   bottom: 0;
-  background: #000;
+  background: #0075c2;
   text-align: center;
 }
 .buttom__btn > text{

@@ -4,10 +4,10 @@
   <text>费用:{{textData.price}}</text>
 </view>
 <view class="map_container">
-  <map class="map" id="map" circles="{{circles}}" controls="{{controls}}" bindcontroltap="controltap" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap">
+  <map class="map" id="map" controls="{{controls}}" bindcontroltap="controltap" longitude="{{longitude}}" latitude="{{latitude}}" scale="12" show-location="true" markers="{{markers}}" bindmarkertap="makertap">
   </map>
 </view>
 
 <view class='buttom__btn' bindtap='linkPlay'>
-  <text>生成进门二维码</text>
+  <text>扫码开门</text>
 </view>
