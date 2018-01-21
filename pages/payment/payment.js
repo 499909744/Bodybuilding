@@ -30,14 +30,20 @@ Page({
         "token_id": app.globalData.token
       },
       success: function (res) {
+
+        console.log(res);
         if (res.data.visitQrCode) {
           wx.showModal({
             content: '首单免费体验哦',
             showCancel: false,
-            success: function (res) {
-              if (res.confirm) {
+            success: function (_res) {
+              wx.setStorageSync('orderSerial', res.data.serialsNo)
+              if (_res.confirm) {
                 that.createQrCode(res.data.visitQrCode, "mycanvas", 300, 300);
               }
+              let s = setInterval(() => {
+                that.getCode(res.data.visitQrCode, s);
+              }, 2000);
             }
           });
           return;
@@ -50,9 +56,9 @@ Page({
           'paySign': res.data.paySign,
           'success': function (_res) {
             console.log(res);
-            wx.setStorageSync('orderSerial', res.data.orderSerial)
+            wx.setStorageSync('orderSerial', res.data.serialsNo)
             let s = setInterval(() => {
-              that.getCode(res.data.orderSerial, s);
+              that.getCode(res.data.visitQrCode, s);
             }, 2000);
           },
           'fail': function (res) {
@@ -86,6 +92,7 @@ Page({
         "token_id": app.globalData.token
       },
       success: function (res) {
+        wx.hideLoading();
         console.log(res);
         if (res.statusCode == 200 && res.data.result) {
           wx.hideLoading();
@@ -103,7 +110,7 @@ Page({
         wx.hideLoading();
       },
       complete: function () {
-
+        wx.hideLoading();
       }
     })
   },
@@ -123,6 +130,7 @@ Page({
         "token_id": app.globalData.token
       },
       success: function (res) {
+        console.log(res);
         if (res.statusCode == 200) {
           clearInterval(s);
           wx.redirectTo({

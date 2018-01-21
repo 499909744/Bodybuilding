@@ -24,12 +24,16 @@ Page({
         that.getOrder(res.data);
       },
     })
+    let i = setInterval(() => {
+      that.ds(i);
+    }, 1000)
   },
 
   getOrder: function (orderSerial) {
     let that = this;
+    let _url = 'https://xiao2.dandaojiuye.com/gym';
     wx.request({
-      url: `https://xiao2.dandaojiuye.com/gym/api/v1/gym/scanRecord/getScanRecord/${orderSerial}/serialNo `,
+      url: `${_url}/api/v1/gym/scanRecord/getScanRecord/${orderSerial}/serialNo`,
       method: 'GET',
       header: {
         'content-type': 'application/json',
@@ -37,20 +41,10 @@ Page({
       },
       success: function (res) {
         if (res.statusCode == 200) {
-          if (res.data.leftSeconds < 0) {
-            that.setData({
-              m: 0,
-              s: 0
-            })
-            return;
-          }
           that.setData({
             m: parseInt(res.data.leftSeconds / 60),
             s: res.data.leftSeconds % 60
-          })
-          let i = setInterval(() => {
-            that.ds(i);
-          }, 1000)
+          })        
         }
       },
       fail: function (res) {
@@ -67,7 +61,7 @@ Page({
     if (s < 0) {
       s == 1
     }
-    if ((m == 0 && s == 1) || (m == 0 && s == 0)) {
+    if (m == 0 && s == 1) {
       clearInterval(i);
       this.dis = false;
       return;

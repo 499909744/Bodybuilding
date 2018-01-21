@@ -17,6 +17,7 @@ Page({
    */
   onLoad: function (options) {
     let _info = JSON.parse(options.item);
+    wx.setStorageSync('orderSerial', _info.orders.serialsNo)
     this.setData({
       info: _info,
       payTime: utils.toDate(_info.orders.createTime)

@@ -247,16 +247,18 @@ Page({
   },
   getOrder: function () {
     let orderSerial = wx.getStorageSync('orderSerial')
+    let _url = 'https://xiao2.dandaojiuye.com/gym';
     wx.request({
-      url: `https://xiao2.dandaojiuye.com/gym/api/v1/gym/scanRecord/getScanRecord/${orderSerial}/serialNo `,
+      url: `${_url}/api/v1/gym/scanRecord/getScanRecord/${orderSerial}/serialNo`,
       method: 'GET',
       header: {
         'content-type': 'application/json',
         'token_id': app.globalData.token
       },
       success: function (res) {
+        console.log(res);
         if (res.statusCode == 200) {
-          if (res.data.leftSeconds > 0){
+          if (res.data.leftSeconds > 0) {
             wx.reLaunch({
               url: '/pages/playing/playing',
             })
