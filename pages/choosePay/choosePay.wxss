@@ -1,5 +1,36 @@
-.title{
+.items {
   text-align: center;
-  font-size: 40rpx;
+  width: 200rpx;
+  border: 5rpx solid #0075c2;
+  border-radius: 10rpx;
+  display: inline-block;
+  margin: 10rpx;
+}
+
+.content {
   margin-top: 100rpx;
+  width: 100%;
+  text-align: center;
+}
+
+.textt {
+  width: 100%;
+  position: absolute;
+  bottom: 220rpx;
+  font-size: 30rpx;
+  text-align: center;
+  color: #666;
+}
+
+.bttn {
+  position: absolute;
+  width: 90%;
+  bottom: 100rpx;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.bk{
+  background: #0075c2;
+  color: white;
 }

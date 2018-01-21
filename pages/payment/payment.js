@@ -1,5 +1,6 @@
 // pages/index/payment/payment.js
 const paymentUrl = require('../../config').paymentUrl
+const getLogs = require('../../config').getLogs
 const app = getApp()
 var QR = require("../utils/qrcode.js");
 Page({
@@ -21,7 +22,7 @@ Page({
     let that = this;
     wx.showLoading();
     wx.request({
-      url: paymentUrl,
+      url: `${paymentUrl}?type=3&hours=${options.hours}`,
       method: 'POST',
       data: {},
       header: {
@@ -29,13 +30,13 @@ Page({
         "token_id": app.globalData.token
       },
       success: function (res) {
-        if (res.data.visitQrCode){
+        if (res.data.visitQrCode) {
           wx.showModal({
             content: '首单免费体验哦',
             showCancel: false,
             success: function (res) {
               if (res.confirm) {
-                that.createQrCode(res.data.visitQrCode, "mycanvas", 300, 300);              
+                that.createQrCode(res.data.visitQrCode, "mycanvas", 300, 300);
               }
             }
           });
@@ -48,16 +49,18 @@ Page({
           'signType': 'MD5',
           'paySign': res.data.paySign,
           'success': function (_res) {
+            console.log(res);
+            wx.setStorageSync('orderSerial', res.data.orderSerial)
             let s = setInterval(() => {
               that.getCode(res.data.orderSerial, s);
-            }, 1000);
+            }, 2000);
           },
           'fail': function (res) {
             setTimeout(function () {
               wx.navigateBack({
                 delta: 1
               })
-            }, 1000)
+            }, 2000)
           }
         })
       },
@@ -89,6 +92,11 @@ Page({
           clearInterval(s);
           var initUrl = res.data.result;
           that.createQrCode(initUrl, "mycanvas", 300, 300);
+
+          let _s = setInterval(() => {
+            that.getLogs(initUrl, _s);
+          }, 2000)
+         
         }
       },
       fail: function (error) {
@@ -99,59 +107,38 @@ Page({
       }
     })
   },
-  back:function(){
+  back: function () {
     wx.navigateTo({
       url: '/pages/user/user',
     })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
+  getLogs: function (code, s) {
+    wx.request({
+      url: `${getLogs}?qrCode=${code}`,
+      method: 'POST',
+      data: {},
+      header: {
+        'content-type': 'application/json',
+        "token_id": app.globalData.token
+      },
+      success: function (res) {
+        if (res.statusCode == 200) {
+          clearInterval(s);
+          wx.redirectTo({
+            url: '/pages/playing/playing',
+          })
+          return;
+        }
+      },
+      fail: function (error) {
+      },
+      complete: function () {
+
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
   createQrCode: function (url, canvasId, cavW, cavH) {
     //调用插件中的draw方法，绘制二维码图片
     QR.api.draw(url, canvasId, cavW, cavH);

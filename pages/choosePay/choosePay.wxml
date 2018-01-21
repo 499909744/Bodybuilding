@@ -1,4 +1,11 @@
-<view class="title">健身须知</view>
+<view class='content'>
+  <view class='items {{item.isS ? "bk" : ""}}' wx:for="{{mon}}" bindtap='isClick' wx:key="*this" data-index="{{index}}">
+    <text>{{item.configName}}</text>
+    <text>¥{{item.configValue}}元</text>
+  </view>
+</view>
 
-
-<button type="primary" bindtap='goPay'>¥5元/小时</button>
+<view class='textt'>
+  <text>享跑不会以任何形式要求您输入银行账户和密码</text>
+</view>
+<button type="primary" class='bttn' bindtap='goPay'>立即支付</button>

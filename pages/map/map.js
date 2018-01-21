@@ -50,12 +50,17 @@ Page({
         wx.reLaunch({
           url: '/pages/login/login',
         })
+      } else if (res.data.isDeposit == 1) {
+        wx.reLaunch({
+          url: '/pages/deposit/deposit',
+        })
       } else {
         app.globalData.authUserInfo = true;
         that.getCurrentLocation();
         that.getGymList();
         that.getSystemInfo();
         that.getControls();
+        that.getOrder();
       }
     } else if (res.statusCode == 404) {
       wx.reLaunch({
@@ -157,8 +162,8 @@ Page({
             latitude: latitude,
             longitude: longitude,
             iconPath: "../../images/map/marker.png",
-            width: 50,
-            height: 50
+            width: 30,
+            height: 30
           }
           _markers.push(marker)
         }
@@ -238,6 +243,32 @@ Page({
     wx.navigateTo({
       url: '/pages/choosePay/choosePay',
     })
-  }
+  },
+  getOrder: function () {
+    let orderSerial = wx.getStorageSync('orderSerial')
+    wx.request({
+      url: `https://xiao2.dandaojiuye.com/gym/api/v1/gym/scanRecord/getScanRecord/${orderSerial}/serialNo `,
+      method: 'GET',
+      header: {
+        'content-type': 'application/json',
+        'token_id': app.globalData.token
+      },
+      success: function (res) {
+        if (res.statusCode == 200) {
+          if (res.data.leftSeconds > 0){
+            wx.reLaunch({
+              url: '/pages/playing/playing',
+            })
+          }
+        }
+      },
+      fail: function (res) {
+        console.log(res)
+      },
+      complete: function () {
+        wx.hideLoading();
+      }
+    })
+  },
 
 })
