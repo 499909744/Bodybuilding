@@ -134,6 +134,7 @@ Page({
    * 健身详情
    */
   goEr: function (e) {
+    console.log(e);
     let str = JSON.stringify(e.currentTarget.dataset.er);
     wx.navigateTo({
       url: `/pages/playend/playend?item=${str}`,

@@ -6,7 +6,8 @@ Page({
   data: {
     userInfo: {},
     phone:'',
-    vip:'未开通'
+    vip:'未开通',
+    isVip: 1,
   },
   //事件处理函数
   linkRecord: function () {
@@ -16,7 +17,7 @@ Page({
   },
   refund:function(){
     wx.showModal({
-      content: '退还押金请联系客服: 029-88888888',
+      content: '您的业务已受理，押金将在3-5个工作日内退还',
       showCancel: false,
       success: function (res) {
         if (res.confirm) {
@@ -36,6 +37,9 @@ Page({
     })
   },
   onLoad: function () {
+    this.setData({
+      isVip: app.globalData.isVip,
+    });
     if (!app.globalData.userInfo) {
       wx.getUserInfo({
         success: res => {
@@ -67,5 +71,10 @@ Page({
         // 转发失败
       }
     }
+  },
+  goVip:function(){
+    wx.navigateTo({
+      url: '/pages/user/vip/vip',
+    })
   }
 })

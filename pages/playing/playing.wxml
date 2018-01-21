@@ -2,5 +2,5 @@
   <text>当前剩余时间\n</text>
   <text> {{m}} : {{s}}</text>
 </view>
-
+<canvas class='can' canvas-id="mycanvas" />
 <button class='btm' type="primary" disabled='{{dis}}' size="default" bindtap='pay'>结束</button>

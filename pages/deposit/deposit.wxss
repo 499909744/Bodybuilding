@@ -1,0 +1,35 @@
+.items {
+  text-align: center;
+  width: 600rpx;
+  border: 5rpx solid #0075c2;
+  border-radius: 10rpx;
+  display: inline-block;
+  background: #0075c2;
+  padding-top: 50rpx;
+  padding-bottom: 50rpx;
+}
+.content {
+  margin-top: 100rpx;
+  width: 100%;
+  text-align: center;
+}
+.one{
+  color: white;
+}
+
+.two{
+  color: #730000;
+}
+.textt{
+  color: #666666;
+  margin-left: 70rpx;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+.bttn {
+  position: absolute;
+  width: 90%;
+  bottom: 100rpx;
+  margin-left: 5%;
+  margin-right: 5%;
+}

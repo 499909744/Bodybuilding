@@ -24,10 +24,6 @@ Page({
         that.getOrder(res.data);
       },
     })
-
-    let i = setInterval(() => {
-      that.ds(i);
-    }, 1000)
   },
 
   getOrder: function (orderSerial) {
@@ -41,10 +37,20 @@ Page({
       },
       success: function (res) {
         if (res.statusCode == 200) {
+          if (res.data.leftSeconds < 0) {
+            that.setData({
+              m: 0,
+              s: 0
+            })
+            return;
+          }
           that.setData({
             m: parseInt(res.data.leftSeconds / 60),
             s: res.data.leftSeconds % 60
           })
+          let i = setInterval(() => {
+            that.ds(i);
+          }, 1000)
         }
       },
       fail: function (res) {
@@ -58,7 +64,10 @@ Page({
   ds: function (i) {
     let s = this.data.s;
     let m = this.data.m;
-    if (m == 0 && s == 1) {
+    if (s < 0) {
+      s == 1
+    }
+    if ((m == 0 && s == 1) || (m == 0 && s == 0)) {
       clearInterval(i);
       this.dis = false;
       return;
@@ -66,7 +75,7 @@ Page({
     this.setData({
       s: s - 1,
     })
-    if (s == 1) {
+    if (s == 1 || s == 0) {
       this.setData({
         m: m - 1,
         s: 60

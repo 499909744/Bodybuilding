@@ -5,14 +5,14 @@
   <canvas class='can' canvas-id="mycanvas" />
 
   <view class='zy'>
-    <text>订单编号: {{info.serialsNo}}\n</text>
-    <text>支付金额: {{info.price}}元\n</text>
+    <text>订单编号: {{info.orders.serialsNo}}\n</text>
+    <text>支付金额: {{info.orders.payPrice}}元\n</text>
     <text>支付时间: {{payTime}}\n</text>
     <text wx:if="{{info.status == 3}}">使用状态: 未使用\n</text>
     <text wx:if="{{info.status == 5}}">使用状态: 已使用\n</text>
 
-    <text wx:if="{{info.useCoupon == null || info.useCoupon == 1}}">是否使用优惠券: 未使用</text>
-    <text wx:if="{{info.useCoupon == 2}}">是否使用优惠券: 已使用</text>
+    <text wx:if="{{info.orders.useCoupon == null || info.orders.useCoupon == 1}}">是否使用优惠券: 未使用</text>
+    <text wx:if="{{info.orders.useCoupon == 2}}">是否使用优惠券: 已使用</text>
 
   </view>
 

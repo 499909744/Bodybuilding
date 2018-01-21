@@ -1,16 +1,20 @@
 {
   "pages": [
-    "pages/map/map",
+        "pages/map/map",
+        
+    "pages/user/vip/vip",
+    "pages/user/user",
     "pages/playing/playing",
     "pages/choosePay/choosePay",
     "pages/deposit/deposit",
-    "pages/user/user",
+   
     "pages/login/useConvention/useConvention",
     "pages/login/login",
     "pages/login/auth/auth",
     "pages/user/coupon/coupon",
     "pages/user/fault/fault",
     "pages/user/record/record",
+    
     "pages/settlement/settlement",
     "pages/payment/payment",
     "pages/play/play",

@@ -1,0 +1,16 @@
+text{
+  text-align: center
+}
+.page__c{
+  width: 100%;
+  text-align: center;
+  margin-top: 300rpx;
+}
+
+.bttn {
+  position: absolute;
+  width: 90%;
+  bottom: 100rpx;
+  margin-left: 5%;
+  margin-right: 5%;
+}

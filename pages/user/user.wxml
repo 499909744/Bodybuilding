@@ -2,10 +2,6 @@
 <view class="container">
   <view class="userinfoImg">
     <image wx:if="{{userInfo.avatarUrl}}" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <view class="vipImg">
-      <image src="../../images/user/VIP.png"></image>
-      我的会员：{{vip}}
-    </view>
     <text wx:if="{{phone}}" class="userinfo-nickname">{{phone}}</text>
     <text class="userinfo-nickname">信用积分：100</text>
   </view>
@@ -14,14 +10,18 @@
       <image src="../../images/user/yun.png"></image>健身记录
       <view class="triangle-facing-right"></view>
     </view>
-    <view bindtap="refund">
-      <image src="../../images/user/tui.png"></image>退还押金
-      <view class="triangle-facing-right"></view>
-    </view>
+
     <view>
       <image src="../../images/user/ren.png"></image>实名认证
       <view class="triangle-facing-right"></view>
       <text class="authentication">已认证</text>
+    </view>
+    <view >
+      <image src="../../images/user/VIP.png"></image>我的会员
+      <view class="triangle-facing-right"></view>
+      <text wx:if="{{isVip ==1}}" bindtap='goVip' class="authentication">未开通</text>
+      <text wx:if="{{isVip ==2}}" class="authentication">已开通</text>
+
     </view>
     <view bindtap="linkCoupon">
       <image src="../../images/user/quan.png"></image>优惠券
@@ -38,5 +38,10 @@
       <image src="../../images/user/gu.png"></image>故障上报
       <view class="triangle-facing-right"></view>
     </view>
+    <view bindtap="refund">
+      <image src="../../images/user/tui.png"></image>退还押金
+      <view class="triangle-facing-right"></view>
+    </view>
+
   </view>
 </view>

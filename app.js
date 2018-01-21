@@ -8,7 +8,7 @@ App({
   getUserTokenId: function (successFun) {
     var self = this
     if (self.globalData.token) {
-        self.getUserInfo(successFun)
+      self.getUserInfo(successFun)
     } else {
       wx.login({
         success: function (data) {
@@ -59,12 +59,13 @@ App({
     })
   },
   onLaunch: function () {
-   
+
   },
 
   globalData: {
     token: null,
     authUserInfo: false,
-    phone:'',
+    phone: '',
+    isVip: 1,
   }
 })

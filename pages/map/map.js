@@ -56,6 +56,7 @@ Page({
         })
       } else {
         app.globalData.authUserInfo = true;
+        app.globalData.isVip = res.data.isVip;
         that.getCurrentLocation();
         that.getGymList();
         that.getSystemInfo();

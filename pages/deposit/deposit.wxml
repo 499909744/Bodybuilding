@@ -1,0 +1,12 @@
+<view class='content'>
+  <view class='items'>
+    <text class='one'>{{mon}}元押金\n</text>
+    <text class='two'>可退</text>
+  </view>
+</view>
+
+<view class='textt'>
+  <text>押金随时可退</text>
+</view>
+
+<button type="primary" class='bttn page__bd_spacing' bindtap='goPay'>立即支付</button>

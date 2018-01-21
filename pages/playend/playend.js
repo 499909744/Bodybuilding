@@ -1,6 +1,7 @@
 var QR = require("../utils/qrcode.js");
 const utils = require('../utils/utils.js');
-
+const getLogs = require('../../config').getLogs
+const app = getApp();
 Page({
 
   /**
@@ -8,7 +9,7 @@ Page({
    */
   data: {
     info: {},
-    payTime:''
+    payTime: ''
   },
 
   /**
@@ -18,9 +19,15 @@ Page({
     let _info = JSON.parse(options.item);
     this.setData({
       info: _info,
-      payTime: utils.toDate(_info.payTime)
+      payTime: utils.toDate(_info.orders.createTime)
     })
-    this.createQrCode(_info.visitQrCode, "mycanvas", 300, 300); 
+    this.createQrCode(_info.visitQrCode, "mycanvas", 200, 200);
+
+    if (_info.status == 3) {
+      let s = setInterval(() => {
+        this.getLogs(_info.visitQrCode, s);
+      }, 2000)
+    }
   },
 
   /**
@@ -100,5 +107,30 @@ Page({
     wx.navigateBack({
       delta: 1
     })
-  }
+  },
+  getLogs: function (code, s) {
+    wx.request({
+      url: `${getLogs}?qrCode=${code}`,
+      method: 'POST',
+      data: {},
+      header: {
+        'content-type': 'application/json',
+        "token_id": app.globalData.token
+      },
+      success: function (res) {
+        if (res.statusCode == 200) {
+          clearInterval(s);
+          wx.redirectTo({
+            url: '/pages/playing/playing',
+          })
+          return;
+        }
+      },
+      fail: function (error) {
+      },
+      complete: function () {
+
+      }
+    })
+  },
 })
