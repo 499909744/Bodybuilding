@@ -84,7 +84,8 @@ Page({
             })
           } else if (res.data.isVip == 2) {
             clearInterval(s);
-            wx.reLaunch({
+            app.globalData.isVip = 2;
+            wx.redirectTo({
               url: '/pages/user/user',
             })
           }

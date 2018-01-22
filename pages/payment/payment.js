@@ -30,6 +30,7 @@ Page({
         "token_id": app.globalData.token
       },
       success: function (res) {
+        wx.hideLoading();
 
         console.log(res);
         if (res.data.visitQrCode) {
@@ -42,7 +43,7 @@ Page({
                 that.createQrCode(res.data.visitQrCode, "mycanvas", 300, 300);
               }
               let s = setInterval(() => {
-                that.getCode(res.data.visitQrCode, s);
+                that.getLogs(res.data.visitQrCode, s);
               }, 2000);
             }
           });
@@ -56,9 +57,9 @@ Page({
           'paySign': res.data.paySign,
           'success': function (_res) {
             console.log(res);
-            wx.setStorageSync('orderSerial', res.data.serialsNo)
+            wx.setStorageSync('orderSerial', res.data.orderSerial)
             let s = setInterval(() => {
-              that.getCode(res.data.visitQrCode, s);
+              that.getCode(res.data.orderSerial, s);
             }, 2000);
           },
           'fail': function (res) {

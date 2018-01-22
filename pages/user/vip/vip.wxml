@@ -1,7 +1,7 @@
 <!--pages/login/useConvention/useConvention.wxml-->
 <view class="page__c">
 <text>
-开通vip，可享受每小时0.5折优惠</text>
+开通vip，可享受每小时5折优惠</text>
 </view>
 
 <button type="primary" class='bttn page__bd_spacing' bindtap='goPay'>立即开通</button>

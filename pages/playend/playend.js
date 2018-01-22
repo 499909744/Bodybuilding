@@ -105,8 +105,8 @@ Page({
 
   },
   back: function () {
-    wx.navigateBack({
-      delta: 1
+    wx.redirectTo({
+      url: '/pages/user/user',
     })
   },
   getLogs: function (code, s) {
@@ -121,7 +121,7 @@ Page({
       success: function (res) {
         if (res.statusCode == 200) {
           clearInterval(s);
-          wx.redirectTo({
+          wx.reLaunch({
             url: '/pages/playing/playing',
           })
           return;
