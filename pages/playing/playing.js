@@ -44,7 +44,7 @@ Page({
           that.setData({
             m: parseInt(res.data.leftSeconds / 60),
             s: res.data.leftSeconds % 60
-          })        
+          })
         }
       },
       fail: function (res) {
@@ -63,8 +63,23 @@ Page({
     }
     if (m == 0 && s == 1) {
       clearInterval(i);
-      this.dis = false;
+      this.setData({
+        dis: false,
+      })
       return;
+    } else if (m == 0 && s == 0) {
+      clearInterval(i);
+      this.setData({
+        dis: false,
+      })
+      return;
+    } else if (m < 0 || s < 0) {
+      clearInterval(i);
+      this.setData({
+        m: 0,
+        s: 0,
+        dis: false,
+      })
     }
     this.setData({
       s: s - 1,
@@ -87,7 +102,7 @@ Page({
   },
   pay: function () {
     wx.reLaunch({
-      url: '/pages/user/user',
+      url: '/pages/map/map',
     })
   }
 })
