@@ -1,12 +1,15 @@
 <view class="map_text" wx:if="{{textShow}}">
+  <text class="h1">{{textData.location}}</text>
   <text class="h1">{{textData.name}}</text>
   <text>健身项目 : {{textData.desc}}</text>
 </view>
 <view class="map_container">
-  <map class="map" id="map" controls="{{controls}}" bindcontroltap="controltap" longitude="{{longitude}}" latitude="{{latitude}}" scale="12" show-location="true" markers="{{markers}}" bindmarkertap="makertap">
+  <map class="map" id="map" controls="{{controls}}" bindcontroltap="controltap" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap">
   </map>
 </view>
-
-<view class='buttom__btn' bindtap='linkPlay'>
-  <text>扫码开门</text>
+<view class="bot_btn">
+  <button form-type="submit" type="primary" size="default" loading="{{loading}}" bindtap="linkPlay">
+    <image src="../../../images/map/sao.png"></image>
+    立即支付
+  </button>
 </view>

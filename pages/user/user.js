@@ -8,6 +8,7 @@ Page({
     phone:'',
     vip:'未开通',
     isVip: 1,
+    points: 0,
   },
   //事件处理函数
   linkRecord: function () {
@@ -39,6 +40,7 @@ Page({
   onLoad: function () {
     this.setData({
       isVip: app.globalData.isVip,
+      points: app.globalData.points,
     });
     if (!app.globalData.userInfo) {
       wx.getUserInfo({

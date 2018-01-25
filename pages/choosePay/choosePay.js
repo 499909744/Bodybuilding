@@ -9,13 +9,21 @@ Page({
    */
   data: {
     mon: [],
-    info: ''
+    info: '',
+    scanPriceVip: [],
+    scanPriceNotVip: [],
+    depositPrice: {},
+    vipPrice: {},
+    isVip: 1,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      isVip: app.globalData.isVip,
+    })
     this.getMoney();
   },
   getMoney: function () {
@@ -30,13 +38,11 @@ Page({
       success: function (res) {
         console.log(res);
         if (res.statusCode == 200) {
-          let _info = res.data.scanPrice;
-          _info.forEach(_f => {
-            _f.isS = false;
-          })
-
           that.setData({
-            mon: _info
+            scanPriceVip: res.data.scanPriceVipPlus,
+            scanPriceNotVip: res.data.scanPriceNotVipPlus,
+            depositPrice: res.data.depositPrice,
+            vipPrice: res.data.vipPrice
           })
         }
       },
@@ -48,32 +54,11 @@ Page({
       }
     })
   },
-  isClick: function (e) {
-    let _m = this.data.mon;
-    let _i = e.currentTarget.dataset.index;
-    _m.forEach(_r => {
-      _r.isS = false;
-    })
-    _m[_i].isS = true;
-    this.setData({
-      mon: _m,
-      info: _m[_i]
-    });
-    console.log(_m[_i]);
-  },
-  goPay: function () {
+
+  goPay: function (e) {
     let that = this;
-    let _info = that.data.info;
-    console.log(_info);
-    if (!_info) {
-      wx.showToast({
-        icon: 'loading',
-        title: '请选择支付',
-      })
-      return;
-    }
     wx.navigateTo({
-      url: '/pages/payment/payment?hours=' + that.data.info.hours,
+      url: '/pages/payment/payment?hours=' + e.currentTarget.dataset.hours,
     })
   }
 })

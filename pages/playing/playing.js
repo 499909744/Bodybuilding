@@ -7,8 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    m: '',
-    s: '',
+    h: 0,
+    m: 0,
+    s: 0,
     dis: true
   },
 
@@ -42,7 +43,8 @@ Page({
       success: function (res) {
         if (res.statusCode == 200) {
           that.setData({
-            m: parseInt(res.data.leftSeconds / 60),
+            h: parseInt(res.data.leftSeconds / 60 / 60),
+            m: parseInt(res.data.leftSeconds / 60 % 60),
             s: res.data.leftSeconds % 60
           })
         }
@@ -58,36 +60,47 @@ Page({
   ds: function (i) {
     let s = this.data.s;
     let m = this.data.m;
+    let h = this.data.h;
     if (s < 0) {
       s == 1
     }
-    if (m == 0 && s == 1) {
+    if (h == 0 && m == 0 && s == 1) {
       clearInterval(i);
       this.setData({
         dis: false,
       })
       return;
-    } else if (m == 0 && s == 0) {
+    } else if (h == 0 && m == 0 && s == 0) {
       clearInterval(i);
       this.setData({
         dis: false,
       })
       return;
-    } else if (m < 0 || s < 0) {
+    } else if (h < 0 || m < 0 || s < 0) {
       clearInterval(i);
       this.setData({
+        h: 0,
         m: 0,
         s: 0,
         dis: false,
       })
+      return;
     }
     this.setData({
       s: s - 1,
     })
+    if (m == 0) {
+      m = 60;
+      if (h >= 1) {
+        this.setData({
+          h: h - 1,
+        })
+      }
+    }
     if (s == 1 || s == 0) {
       this.setData({
         m: m - 1,
-        s: 60
+        s: 59
       })
     }
 

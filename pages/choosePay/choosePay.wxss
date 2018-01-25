@@ -10,16 +10,19 @@
 .content {
   margin-top: 100rpx;
   width: 100%;
-  text-align: center;
+  color: white;
+  font-size: 40rpx;
 }
 
 .textt {
-  width: 100%;
+  width: 90%;
   position: absolute;
   bottom: 220rpx;
   font-size: 30rpx;
-  text-align: center;
+  text-align: left;
   color: #666;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .bttn {
@@ -30,7 +33,34 @@
   margin-right: 5%;
 }
 
-.bk{
+.bk {
   background: #0075c2;
   color: white;
+}
+
+.mons {
+  margin: auto;
+  width: 90%;
+  height: 150rpx;
+  line-height: 3.8em;
+  padding-left: 5%;
+  margin-bottom: 20rpx;
+  text-align: right;
+}
+.r{
+  margin-right: 20rpx;
+}
+.l{
+  margin-right: 300rpx;
+}
+.c0 {
+  background: #6fa3d2;
+}
+
+.c1 {
+  background: #60bf3f;
+}
+
+.c2 {
+  background: #34bd75;
 }

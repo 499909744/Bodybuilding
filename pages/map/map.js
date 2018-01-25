@@ -102,7 +102,7 @@ Page({
       textData: {
         name: data[i].name,
         desc: data[i].gymItems,
-        price: data[i].price
+        location: data[i].location
       },
       textShow: true
     });
@@ -173,7 +173,7 @@ Page({
           textData: {
             name: markersData[0].name,
             desc: markersData[0].gymItems,
-            price: markersData[0].price
+            location: markersData[0].location
           },
           textShow: true
         });
@@ -258,7 +258,7 @@ Page({
       success: function (res) {
         console.log(res);
         if (res.statusCode == 200) {
-          if (res.data.leftSeconds > 0) {
+          if (res.data.leftSeconds > 0 && res.data.status == 5) {
             wx.reLaunch({
               url: '/pages/playing/playing',
             })

@@ -46,7 +46,9 @@ App({
       },
       method: "GET",
       success: function (res) {
+        console.log(res);
         that.globalData.phone = res.data.mobile;
+        that.globalData.points = res.data.points;
         if (typeof successFun == 'function') {
           successFun(res);
         }
@@ -67,5 +69,6 @@ App({
     authUserInfo: false,
     phone: '',
     isVip: 1,
+    points: 0
   }
 })

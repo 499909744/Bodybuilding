@@ -3,10 +3,15 @@
   text-align: center;
   font-size: 50rpx;
   margin-top: 150rpx;
+  width: 100%;
 }
-
+.time image{
+  width: 300rpx;
+  height: 300rpx;
+  text-align: center;
+  margin: auto;
+}
 .btm{
-  margin-top: 150rpx;
   margin-left: 15px;
   margin-right: 15px;
 }
@@ -16,4 +21,14 @@
 }
 .ps__tel {
   color: #72ace3;
+}
+.content{
+  text-align: center;
+  font-size: 30rpx;
+  margin-top: 50rpx;
+  margin: auto;
+  width: 100%;
+}
+.timer{
+  font-size: 100rpx;
 }

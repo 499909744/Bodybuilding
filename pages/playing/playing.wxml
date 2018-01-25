@@ -1,6 +1,9 @@
 <view class='time'>
+  <image src='../../images/play/time.png' />
+</view>
+<view class='content'>
   <text>当前剩余时间\n</text>
-  <text> {{m}} : {{s}}</text>
+  <text class='timer'>{{h<10 ? '0' : ''}}{{h}} : {{m<10 ? '0' : ''}}{{m}} : {{s<10 ? '0' : ''}}{{s}}</text>
 </view>
 <canvas class='can' canvas-id="mycanvas" />
 <button class='btm' type="primary" disabled='{{dis}}' size="default" bindtap='pay'>结束</button>
