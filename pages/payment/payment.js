@@ -66,6 +66,9 @@ Page({
             let s = setInterval(() => {
               that.getCode(res.data.orderSerial, s);
             }, 2000);
+            that.setData({
+              s: s
+            })
           },
           'fail': function (res) {
             setTimeout(function () {
