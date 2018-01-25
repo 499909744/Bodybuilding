@@ -71,11 +71,9 @@ Page({
             })
           },
           'fail': function (res) {
-            setTimeout(function () {
-              wx.navigateBack({
-                delta: 1
-              })
-            }, 2000)
+            wx.navigateBack({
+              delta: 1
+            })
           }
         })
       },
