@@ -64,13 +64,7 @@ Page({
     if (s < 0) {
       s == 1
     }
-    if (h == 0 && m == 0 && s == 1) {
-      clearInterval(i);
-      this.setData({
-        dis: false,
-      })
-      return;
-    } else if (h == 0 && m == 0 && s == 0) {
+    if (h == 0 && m == 0 && s == 0) {
       clearInterval(i);
       this.setData({
         dis: false,
@@ -97,7 +91,7 @@ Page({
         })
       }
     }
-    if (s == 1 || s == 0) {
+    if (s == 0) {
       this.setData({
         m: m - 1,
         s: 59

@@ -12,7 +12,9 @@ Page({
     canvasHidden: true,
     maskHidden: true,
     imagePath: '',
-    placeholder: ''//默认二维码生成文本
+    placeholder: '',//默认二维码生成文本,
+    _s: '',
+    s: '',
   },
 
   /**
@@ -40,11 +42,14 @@ Page({
             success: function (_res) {
               wx.setStorageSync('orderSerial', res.data.serialsNo)
               if (_res.confirm) {
-                that.createQrCode(res.data.visitQrCode, "mycanvas", 300, 300);
+                that.createQrCode(res.data.visitQrCode, "mycanvas", 250, 250);
               }
               let s = setInterval(() => {
                 that.getLogs(res.data.visitQrCode, s);
               }, 2000);
+              that.setData({
+                s: s
+              })
             }
           });
           return;
@@ -99,12 +104,14 @@ Page({
           wx.hideLoading();
           clearInterval(s);
           var initUrl = res.data.result;
-          that.createQrCode(initUrl, "mycanvas", 300, 300);
+          that.createQrCode(initUrl, "mycanvas", 250, 250);
 
           let _s = setInterval(() => {
             that.getLogs(initUrl, _s);
           }, 2000)
-         
+          that.setData({
+            _s: _s
+          })
         }
       },
       fail: function (error) {
@@ -173,5 +180,18 @@ Page({
         console.log(res);
       }
     });
-  }
+  },
+  onUnload: function () {
+    clearInterval(this.data._s);
+    clearInterval(this.data.s);
+  },
+  onHide: function () {
+    clearInterval(this.data._s);
+    clearInterval(this.data.s);
+  },
+  call: function () {
+    wx.makePhoneCall({
+      phoneNumber: '029-83396586' //仅为示例，并非真实的电话号码
+    })
+  },
 })

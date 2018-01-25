@@ -6,11 +6,11 @@
 }
 
 .can {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   position: absolute;
   left: 50%;
-  margin-left: -150px;
+  margin-left: -125px;
   margin-top: 20rpx;
 }
 
@@ -18,17 +18,22 @@
   margin: atuo;
   text-align: center;
   font-size: 35rpx;
+  margin-top: 100rpx
 }
 
 .zy {
   position: absolute;
   bottom: 150rpx;
   left: 50rpx;
-  font-size: 30rpx
+  font-size: 30rpx;
+  right: 50rpx;
 }
 
 .btnn {
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+.tel__color{
+  color: #0080ff;
 }

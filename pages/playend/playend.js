@@ -9,7 +9,8 @@ Page({
    */
   data: {
     info: {},
-    payTime: ''
+    payTime: '',
+    s: '',
   },
 
   /**
@@ -28,6 +29,9 @@ Page({
       let s = setInterval(() => {
         this.getLogs(_info.visitQrCode, s);
       }, 2000)
+      this.setData({
+        s: s
+      })
     }
   },
 
@@ -45,18 +49,13 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
   onUnload: function () {
-
+    clearInterval(this.data._s);
+    clearInterval(this.data.s);
+  },
+  onHide: function () {
+    clearInterval(this.data._s);
+    clearInterval(this.data.s);
   },
 
   /**

@@ -9,7 +9,7 @@
 </view>
 <view class="bot_btn">
   <button form-type="submit" type="primary" size="default" loading="{{loading}}" bindtap="linkPlay">
-    <image src="../../../images/map/sao.png"></image>
+    <image src="../../images/map/sao.png"></image>
     立即支付
   </button>
 </view>

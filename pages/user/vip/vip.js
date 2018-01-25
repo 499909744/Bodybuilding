@@ -8,14 +8,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    s: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
   },
 
   /**
@@ -48,6 +48,9 @@ Page({
               let s = setInterval(() => {
                 that.goMap(s);
               }, 2000)
+              that.setData({
+                s: s
+              })
             },
             'fail': function (res) {
 
@@ -97,5 +100,13 @@ Page({
         wx.hideLoading()
       }
     })
+  },
+  onUnload: function () {
+    clearInterval(this.data._s);
+    clearInterval(this.data.s);
+  },
+  onHide: function () {
+    clearInterval(this.data._s);
+    clearInterval(this.data.s);
   }
 })
