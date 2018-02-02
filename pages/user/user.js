@@ -1,4 +1,6 @@
 // pages/user/user.js
+const depositRefundUrl = require('../../config').depositRefundUrl;
+
 //获取应用实例
 const app = getApp()
 
@@ -17,14 +19,49 @@ Page({
     })
   },
   refund:function(){
-    wx.showModal({
-      content: '您的业务已受理，押金将在3-5个工作日内退还',
-      showCancel: false,
+
+    let that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+
+    wx.request({
+      url: depositRefundUrl,
+      header: {
+        "content-type": "application/json",
+        "token_id": app.globalData.token
+      },
+      method: "post",
       success: function (res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-        } 
+        if (res.statusCode == 200) {
+          wx.showModal({
+            content: '您的业务已受理，押金将在3-5个工作日内退还',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              }
+            }
+          })
+        }else {
+          wx.showModal({
+            content: '当前服务器繁忙，请稍后再试',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              }
+            }
+          });
+        }
+      },
+      fail: function (res) {
+        console.log(res);
+      },
+      complete: function () {
+        wx.hideLoading()
       }
+
     })
   },
   linkCoupon: function () {
