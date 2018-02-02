@@ -43,9 +43,9 @@ Page({
               }
             }
           })
-        }else {
+        }else if(res.data.code == "repeatedApply.NotRule") {
           wx.showModal({
-            content: '当前服务器繁忙，请稍后再试',
+            content: '退还押金业务正在受理中，请勿重复提交！',
             showCancel: false,
             success: function (res) {
               if (res.confirm) {
@@ -53,6 +53,17 @@ Page({
               }
             }
           });
+        }else {
+
+            wx.showModal({
+                content: '当前服务器繁忙，请稍后再试',
+                showCancel: false,
+                success: function (res) {
+                    if (res.confirm) {
+                        console.log('用户点击确定')
+                    }
+                }
+            });
         }
       },
       fail: function (res) {
