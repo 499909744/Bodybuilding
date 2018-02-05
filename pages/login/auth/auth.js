@@ -97,7 +97,7 @@ Page({
             success: function (res) {
               if (res.confirm) {
                 wx.reLaunch({
-                  url: '/pages/deposit/deposit',
+                  url: '/pages/map/map',
                 })
               }
             }
