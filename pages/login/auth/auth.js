@@ -96,7 +96,9 @@ Page({
             showCancel: false,
             success: function (res) {
               if (res.confirm) {
-
+                wx.reLaunch({
+                  url: '/pages/deposit/deposit',
+                })
               }
             }
           });
