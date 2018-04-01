@@ -109,7 +109,7 @@ Page({
     return {
       title: '享跑盒子',
       path: '/pages/map/map',
-      imageUrl: '../../images/user/yun.png',
+      imageUrl: '../../images/login/logo.png',
       success: function (res) {
         wx.showToast({
           title: '分享成功',

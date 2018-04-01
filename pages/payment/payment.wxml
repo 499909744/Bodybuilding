@@ -7,7 +7,7 @@
   <view class='zy'>
     <text>注意事项:\n</text>
     <text>1.请把二维码对准扫描器\n</text>
-    <text bindtap='call'>2.如无法开门请拨打客服电话 <text class='tel__color'>029-83396586</text>\n</text>
+    <text bindtap='call'>2.如无法开门请拨打客服电话 <text class='tel__color'>18691631441</text>\n</text>
     <text>3.如意外关闭本页,请在 (个人中心->健身记录) 中查看二维码\n</text>
     <text>4.二维码为一次性使用,切勿重复使用,以免发生重复计费</text>
   </view>
