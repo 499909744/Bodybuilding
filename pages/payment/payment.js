@@ -143,7 +143,7 @@ Page({
         if (res.statusCode == 200) {
           clearInterval(s);
           wx.redirectTo({
-            url: '/pages/playing/playing',
+            url: '/pages/map/map',
           })
           return;
         }
