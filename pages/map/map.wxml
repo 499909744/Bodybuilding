@@ -14,12 +14,11 @@
   </button>
 </view> -->
 <view class='bigBox'>
+
+  <block wx:for="{{getGymList.data}}" wx:key="*this">
   <view>
-    <image src='../../images/map/1.png'></image>
-    <navigator url="/pages/choosePay/choosePay?location=西安交通大学开元孵化器">西安交通大学开元孵化器</navigator>
+    <image src='{{item.coverImg}}' mode="widthFix"></image>
+    <navigator url="/pages/choosePay/choosePay?{{item.location}}">{{item.location}}</navigator>
   </view>
-  <view>
-    <image src='../../images/map/2.png'></image>
-    <navigator>数码家园</navigator>
-  </view>
+  </block>
 </view>

@@ -2,8 +2,7 @@
 
 .vipBg {
   position: relative;
-  width: 750rpx;
-  height: 1125rpx;
+  width: 100%;
   display: block;
 }
 
@@ -11,7 +10,7 @@
   position: absolute;
   width: 300rpx;
   height: 94rpx;
-  bottom: 200rpx;
+  bottom: 150rpx;
 }
 
 .joinVip {

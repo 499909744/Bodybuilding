@@ -3,7 +3,7 @@ var host = 'https://xiao2.dandaojiuye.com/gym'
 var config = {
   host,
   getTokenIdUrl: `${host}/api/v1/gym/userInfo/login`,//获取接口权限凭证
-  getGymListUrl: `${host}/api/v1/gym/gymHourse/list`,
+  getGymListUrl: `${host}/api/v1/gym/gymHourse/list`, //获取健身房列表
   getUserInfoUrl: `${host}/api/v1/gym/userInfo/getUserInfo`,//获取用户信息
   saveUserInfoUrl: `${host}/api/v1/gym/userInfo/auth`,//保存用户信息
   sendMsgUrl: `${host}/api/v1/gym/common/sendMsg`,//发送验证码

@@ -209,13 +209,19 @@ Page({
   init: function (res) {
     var that = this;
     if (res.statusCode == 200) {
-      if (!res.data.mobile) {
-      } else {
+      if (res.data.mobile) {
         app.globalData.authUserInfo = true;
         app.globalData.phone = res.data.mobile;
-        wx.reLaunch({
-          url: '/pages/user/openVip/openVip',
-        })
+        app.globalData.isVip = res.data.isVip
+        if (res.data.isVip == 1){
+          wx.reLaunch({
+            url: '/pages/user/openVip/openVip',
+          })
+        }else{
+          wx.reLaunch({
+            url: 'pages/map/map',
+          })
+        }
       }
     }else if(res.statusCode == 404){
 
