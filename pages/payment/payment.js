@@ -37,7 +37,7 @@ Page({
         console.log(res);
         if (res.data.visitQrCode) {
           wx.showModal({
-            content: '首单免费体验哦',
+            content: '会员免费体验',
             showCancel: false,
             success: function (_res) {
               wx.setStorageSync('orderSerial', res.data.serialsNo)

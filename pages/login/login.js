@@ -281,6 +281,20 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+      return {
+          title: '享跑盒子',
+          path: '/pages/login/login',
+          imageUrl: '../../images/login/logo1.png',
+          success: function (res) {
+              wx.showToast({
+                  title: '分享成功',
+                  icon: 'success',
+                  duration: 2000
+              })
+          },
+          fail: function (res) {
+              // 转发失败
+          }
+      }
   },
 })

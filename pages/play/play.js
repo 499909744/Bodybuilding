@@ -76,7 +76,7 @@ Page({
    */
   linkPlaying:function(){
       wx.redirectTo({
-        url: '/pages/playing/playing',
+        url: '/pages/map/map',
       })
   }
 })

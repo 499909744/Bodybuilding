@@ -121,7 +121,7 @@ Page({
         if (res.statusCode == 200) {
           clearInterval(s);
           wx.reLaunch({
-            url: '/pages/playing/playing',
+            url: '/pages/map/map',
           })
           return;
         }
