@@ -75,7 +75,7 @@ Page({
             success: function (res) {
               if (res.confirm) {
                 wx.reLaunch({
-                  url: '/pages/deposit/deposit',
+                  url: '/pages/user/openVip/openVip',
                 })
               }
             }
@@ -97,7 +97,7 @@ Page({
             success: function (res) {
               if (res.confirm) {
                 wx.reLaunch({
-                  url: '/pages/map/map',
+                  url: '/pages/user/openVip/openVip',
                 })
               }
             }

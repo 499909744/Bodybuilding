@@ -7,8 +7,8 @@ const app = getApp()
 Page({
   data: {
     userInfo: {},
-    phone:'',
-    vip:'未开通',
+    phone: '',
+    vip: '未开通',
     isVip: 1,
     points: 0,
   },
@@ -18,7 +18,7 @@ Page({
       url: '../user/record/record'
     })
   },
-  refund:function(){
+  refund: function () {
 
     let that = this;
     wx.showLoading({
@@ -43,7 +43,7 @@ Page({
               }
             }
           })
-        }else if(res.data.code == "repeatedApply.NotRule") {
+        } else if (res.data.code == "repeatedApply.NotRule") {
           wx.showModal({
             content: '退还押金业务正在受理中，请勿重复提交！',
             showCancel: false,
@@ -53,17 +53,17 @@ Page({
               }
             }
           });
-        }else {
+        } else {
 
-            wx.showModal({
-                content: '当前服务器繁忙，请稍后再试',
-                showCancel: false,
-                success: function (res) {
-                    if (res.confirm) {
-                        console.log('用户点击确定')
-                    }
-                }
-            });
+          wx.showModal({
+            content: '当前服务器繁忙，请稍后再试',
+            showCancel: false,
+            success: function (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              }
+            }
+          });
         }
       },
       fail: function (res) {
@@ -122,9 +122,9 @@ Page({
       }
     }
   },
-  goVip:function(){
+  goVip: function () {
     wx.navigateTo({
-      url: '/pages/user/vip/vip',
+      url: '/pages/user/openVip/openVip',
     })
   }
 })

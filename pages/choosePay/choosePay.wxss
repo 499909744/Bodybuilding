@@ -1,4 +1,4 @@
-.items {
+/* .items {
   text-align: center;
   width: 200rpx;
   border: 5rpx solid #0075c2;
@@ -63,4 +63,29 @@
 
 .c2 {
   background: #34bd75;
+} */
+image{
+  width: 750rpx;
+  height: 1995rpx;
+  display: block;
+}
+.location{
+  position:absolute;
+  top:590rpx;
+  left:40rpx;
+  font-size:28rpx;
+}
+.bottomBtnR{
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  height: 60rpx;
+}
+.bottomBtnR image {
+  position: absolute;
+  left: 27%;
+  bottom: 20rpx;
+  width: 60rpx;
+  height: 60rpx;
 }

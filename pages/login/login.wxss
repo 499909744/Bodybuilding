@@ -1,3 +1,19 @@
+page {
+  background: #282828;
+}
+
+.page__bd {
+  padding-top: 60px;
+  padding-bottom: 20rpx;
+  margin: 39% 15px 0;
+  background: #333;
+  border-radius:10rpx 10rpx 0 0;
+}
+
+.page__bd_spacing {
+  padding: 0 15px;
+}
+
 button {
   margin-top: 30rpx;
   margin-bottom: 30rpx;
@@ -13,30 +29,54 @@ button {
 }
 
 .view-logo {
-  text-align: center;
-  margin: 20% 0;
+  position: absolute;
+  top:220rpx;
+  left:10%;
 }
 
 .view-logo > image {
-  width: 300rpx;
-  height: 300rpx;
+  width: 234rpx;
+  height: 140rpx;
 }
 
 .weui-vcode-btn {
-  color: #fff;
-  background-color: #0075c2 !important;
+  background: #aaff35 !important;
+  color: #000 !important;
+  border-radius: 10rpx;
+  padding:0;
+  width: 100%;
+  text-align: center;
 }
 
 .weui-cell_input {
-  padding-right: 0;
+  padding: 0;
+}
+
+.weui-input {
+  background: #555;
+  padding: 5rpx 0 5rpx 30rpx;
+  color: #fff;
+  border-radius: 10rpx;
+}
+
+.weui-cell__bd {
+  width: 60%;
+  float: left;
+}
+
+.weui-cell__ft {
+  width: 40%;
+  float: left;
 }
 
 .readed {
   clear: both;
-  margin-top: 20rpx;
+  margin-top: 160rpx;
   font-size: 32rpx;
   height: 60rpx;
   line-height: 60rpx;
+  color: #fff;
+  padding-left: 15px;
 }
 
 .readed>image {
@@ -46,8 +86,24 @@ button {
   display: block;
   float: left;
 }
-.readed navigator{
-  color: #0075c2;
+
+.readed navigator {
+  color: #aaff35;
   display: inline-block;
   text-decoration: underline;
+}
+
+.buttom__bd {
+  margin: 0 15px;
+}
+
+button {
+  border-radius: 0 0 10rpx 10rpx;
+  background: #aaff35 !important;
+  color: #000 !important;
+  margin-top: 0;
+}
+
+.marginTB {
+  margin: 30rpx 0;
 }

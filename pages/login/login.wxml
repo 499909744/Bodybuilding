@@ -1,35 +1,40 @@
 <view class="page">
-
   <view class="view-logo">
-    <image src="../../images/login/logo.png" />
+    <image src="../../images/login/logo1.png" />
   </view>
-
   <view class="page__bd">
-    <view class="weui-cells">
+    <view class="page__bd_spacing">
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__bd">
-          <input class="weui-input" type="number" placeholder="请输入手机号" maxlength="11" bindinput="bindKeyPhone" name="phone"/>
+          <input class="weui-input" type="number" placeholder="请输入手机号" maxlength="11" bindinput="bindKeyPhone" name="phone" />
+        </view>
+
+      </view>
+      <view class="weui-cell_input marginTB">
+        <view class="weui-cell__bd">
+          <input class="weui-input" type="number" placeholder="请输入验证码" bindinput="bindKeyVcode" name="vCode" />
         </view>
         <view class="weui-cell__ft">
-          <view wx:if="{{second>0}}" class="weui-vcode-btn">重新发送（{{second}}）</view>
+          <view wx:if="{{second>0}}" class="weui-vcode-btn">重新发送({{second}})</view>
           <view wx:else class="weui-vcode-btn" bindtap="startCountdown">获取验证码</view>
         </view>
       </view>
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__bd">
-          <input class="weui-input" type="number" placeholder="请输入验证码" bindinput="bindKeyVcode"  name="vCode"/>
-        </view>
-      </view>
+
+
+
     </view>
+    <view class="readed">
+      <image src="../../images/login/select1.png"></image>
+      约定并同意
+      <navigator url="/pages/login/useConvention/useConvention">《享跑盒子使用公约》</navigator>
+    </view>
+
+
+
+  </view>
+  <view class='buttom__bd'>
+    <button bindtap="linkMap" type="primary">开启享跑之旅</button>
   </view>
 
-  <view class="page__bd_spacing">
-    <button bindtap="linkMap" type="primary">登录</button>
-  </view>
 
-  <view class="page__bd_spacing readed">
-    <image src="../../images/login/select.png"></image>
-    约定并同意
-    <navigator url="/pages/login/useConvention/useConvention">《享跑盒子使用公约》</navigator>
-  </view>
 </view>

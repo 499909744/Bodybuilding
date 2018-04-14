@@ -37,8 +37,9 @@ Page({
     }
   },
   onLoad: function () {
-    wx.showLoading()
-    app.getUserTokenId(this.init)
+    this.getGymList()
+    // wx.showLoading()
+    // app.getUserTokenId(this.init)
   },
   /**
    * 初始化
@@ -51,9 +52,9 @@ Page({
           url: '/pages/login/login',
         })
       } else if (res.data.isDeposit == 1) {
-        wx.reLaunch({
-          url: '/pages/deposit/deposit',
-        })
+        // wx.reLaunch({
+        //   url: '/pages/deposit/deposit',
+        // })
       } else {
         app.globalData.authUserInfo = true;
         app.globalData.isVip = res.data.isVip;

@@ -214,7 +214,7 @@ Page({
         app.globalData.authUserInfo = true;
         app.globalData.phone = res.data.mobile;
         wx.reLaunch({
-          url: '/pages/map/map',
+          url: '/pages/user/openVip/openVip',
         })
       }
     }else if(res.statusCode == 404){

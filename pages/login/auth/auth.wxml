@@ -18,7 +18,7 @@
 
     <view class="bottomBtn" wx:if="{{!authUserInfoIdCard}}">
       <button type="primary" size="default" loading="{{loading}}"  formType="submit">
-        <image src="../../../images/user/btnRen.png"></image>
+        <image src="../../../images/user/btnRen1.png"></image>
         确定
       </button>
     </view>

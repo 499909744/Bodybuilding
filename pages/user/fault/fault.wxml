@@ -8,7 +8,7 @@
     <textarea placeholder="请输入故障详情，我们会尽快解决。"  value='' name="description" />
     <view class="bottomBtn">
       <button form-type="submit" type="primary" size="default" loading="{{loading}}" bindtap="primary">
-        <image src="../../../images/user/btnKe.png"></image>
+        <image src="../../../images/user/btnKe1.png"></image>
         提交
       </button>
     </view>

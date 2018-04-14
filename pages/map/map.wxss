@@ -1,4 +1,4 @@
-.map_container {
+/* .map_container {
   position: absolute;
   top: 250rpx;
   bottom: 90rpx;
@@ -44,4 +44,27 @@ text {
   height: 60rpx;
   vertical-align: middle;
   margin-bottom: 10rpx;
+} */
+
+page {
+  background: #282828;
+  text-align: center;
+}
+
+.bigBox>view {
+  position: relative;
+}
+.bigBox>view>navigator {
+  font-size: 20rpx;
+  color: #fff;
+  position: absolute;
+  bottom: 32rpx;
+  left: 62%;
+}
+image {
+  width: 94%;
+}
+
+image:nth-of-type(2) {
+  margin-top: 20rpx;
 }

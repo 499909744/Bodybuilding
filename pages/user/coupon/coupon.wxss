@@ -11,6 +11,5 @@
   height: 400rpx;
 }
 .c_noText{
-  color: #aaa;
   margin-top: 30rpx;
 }

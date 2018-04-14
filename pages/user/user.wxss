@@ -88,7 +88,9 @@
   font-size: 16px;
   line-height: 1;
   padding: 30rpx 40rpx 20rpx 30rpx;
-  background-color: #f9f9f9 !important;
+  /* background-color: #f9f9f9 !important; */
+  background-color: #282828 !important;
+  color: #fff !important;
 }
 
 .btn_share::after {
@@ -105,5 +107,5 @@
   height: 40rpx;
   display: block;
   float: left;
-  margin:10rpx 10rpx 0 0;
+  margin: 10rpx 10rpx 0 0;
 }

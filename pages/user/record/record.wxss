@@ -21,7 +21,7 @@
   height: 20rpx;
   margin: 5rpx 30rpx 5rpx 20rpx;
   border-radius: 50%;
-  background: #00c777;
+  background: #aaff35;
   float: left;
 }
 
