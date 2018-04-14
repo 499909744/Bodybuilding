@@ -1,6 +1,6 @@
 <view class='bigBox'>
   <block wx:for="{{getGymList.data}}" wx:key="*this">
-  <view>
+  <view bindtap='linkPlay'>
     <image class='gymImg' src='{{item.coverImg}}' mode="widthFix"></image>
     <navigator url="/pages/choosePay/choosePay?{{item.location}}">{{item.location}}</navigator>
   </view>

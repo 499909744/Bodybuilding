@@ -41,7 +41,7 @@ Page({
     let today = new Date();
     if (today >= time1 && today <= time2) {
       this.setData({
-        'btnText': '会员免费试用'
+        'btnText': '会员免费体验'
       });
     }
   },
