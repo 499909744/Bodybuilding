@@ -6,11 +6,11 @@
 }
 
 .can {
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   position: absolute;
   left: 50%;
-  margin-left: -125px;
+  margin-left: -100px;
   margin-top: 20rpx;
 }
 

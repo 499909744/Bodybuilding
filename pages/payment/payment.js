@@ -105,7 +105,7 @@ Page({
           wx.hideLoading();
           clearInterval(s);
           var initUrl = res.data.result;
-          that.createQrCode(initUrl, "mycanvas", 250, 250);
+          that.createQrCode(initUrl, "mycanvas", 200, 200);
 
           let _s = setInterval(() => {
             that.getLogs(initUrl, _s);
@@ -192,7 +192,7 @@ Page({
   },
   call: function () {
     wx.makePhoneCall({
-      phoneNumber: '029-83396586' //仅为示例，并非真实的电话号码
+      phoneNumber: '18691631441' //仅为示例，并非真实的电话号码
     })
   },
 })

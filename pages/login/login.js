@@ -139,7 +139,7 @@ Page({
             success: function (res) {
               if (res.confirm) {
                 that.setData({
-                  verify: ' '
+                  verify: ''
                 });
               }
             }
@@ -219,7 +219,7 @@ Page({
           })
         }else{
           wx.reLaunch({
-            url: 'pages/map/map',
+            url: '/pages/map/map',
           })
         }
       }

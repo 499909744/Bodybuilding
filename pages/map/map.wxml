@@ -1,24 +1,11 @@
-<!-- <view class="map_text" wx:if="{{textShow}}">
-  <text class="h1">{{textData.location}}</text>
-  <text class="h1">{{textData.name}}</text>
-  <text>健身项目 : {{textData.desc}}</text>
-</view>
-<view class="map_container">
-  <map class="map" id="map" controls="{{controls}}" bindcontroltap="controltap" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap">
-  </map>
-</view>
-<view class="bot_btn">
-  <button form-type="submit" type="primary" size="default" loading="{{loading}}" bindtap="linkPlay">
-    <image src="../../images/map/sao.png"></image>
-    立即支付
-  </button>
-</view> -->
 <view class='bigBox'>
-
   <block wx:for="{{getGymList.data}}" wx:key="*this">
   <view>
-    <image src='{{item.coverImg}}' mode="widthFix"></image>
+    <image class='gymImg' src='{{item.coverImg}}' mode="widthFix"></image>
     <navigator url="/pages/choosePay/choosePay?{{item.location}}">{{item.location}}</navigator>
   </view>
   </block>
+
+  
 </view>
+<image class="home" src='../../images/map/user.png' bindtap='linkUserInfo'/>

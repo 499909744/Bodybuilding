@@ -1,6 +1,6 @@
 <!--pages/user/openVip/openVip.wxml-->
 <view>
   <image class='vipBg' style='height:{{windowHeight}}px' src='../../../images/vip/vipBg.png'></image>
-  <image class='isjoin joinVip' bindtap='joinVip' src='../../../images/vip/joinVip.png'></image>
+  <image class='isjoin joinVip' bindtap='goPay' src='../../../images/vip/joinVip.png'></image>
   <image class='isjoin lookAgainVip'  bindtap='lookAgainVip'  src='../../../images/vip/lookAgainVip.png'></image>
 </view>

@@ -38,10 +38,10 @@
       <image src="../../images/user/gu1.png"></image>故障上报
       <view class="triangle-facing-right"></view>
     </view>
-    <view bindtap="refund">
+    <!-- <view bindtap="refund">
       <image src="../../images/user/tui1.png"></image>退还押金
       <view class="triangle-facing-right"></view>
-    </view>
+    </view> -->
 
   </view>
 </view>
