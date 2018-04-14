@@ -20,7 +20,7 @@
   <image src='../../images/play/details.png'></image>
   <!--<view class="location">{{location}}</view>-->
   <view class="bottomBtnR">
-    <button bindtap="goPay">
+    <button  bindtap="goPay">
       <image src="../../../images/map/sao1.png"></image>
       {{btnText}}
     </button>
