@@ -42,7 +42,7 @@ Page({
             success: function (_res) {
               wx.setStorageSync('orderSerial', res.data.serialsNo)
               if (_res.confirm) {
-                that.createQrCode(res.data.visitQrCode, "mycanvas", 250, 250);
+                that.createQrCode(res.data.visitQrCode, "mycanvas", 200, 200);
               }
               let s = setInterval(() => {
                 that.getLogs(res.data.visitQrCode, s);
