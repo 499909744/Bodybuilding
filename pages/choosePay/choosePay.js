@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    location: '',
+    itemInfo: {},
     btnText: '立即使用',
     mon: [],
     info: '',
@@ -23,8 +23,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options);
     this.setData({
-      location: options.id,
+      itemInfo: JSON.parse(options.item),
       isVip: app.globalData.isVip,
     })
     this.getMoney();

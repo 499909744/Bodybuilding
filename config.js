@@ -14,6 +14,9 @@ var config = {
   getMoneys: `${host}/api/v1/gym/common/getPrice`,//获取全部价格
   getLogs: `${host}/api/v1/gym/logs/getLogs`,//扫卡记录
   depositRefundUrl: `${host}/api/v1/gym/depositRefundApply/apply`,//退款
-
+  //获取设备列表（isOnline-1在线 0不在线）
+  queryDeviceUrl: `${host}/api/v1/gym/gymHourse/queryDevice`,
+  generateOwnerQrCodeUrl: `${host}/api/v1/gym/gymHourse/generateOwnerQrCode`,//生成业主二维码
+  serialUrl: `${host}/api/v1/gym/gymHourse/openDoor`,//远程开门
 };
 module.exports = config 

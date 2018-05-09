@@ -1,87 +1,57 @@
-/* .items {
-  text-align: center;
-  width: 200rpx;
-  border: 5rpx solid #0075c2;
-  border-radius: 10rpx;
-  display: inline-block;
-  margin: 10rpx;
-}
-
-.content {
-  margin-top: 100rpx;
+image {
   width: 100%;
-  color: white;
-  font-size: 40rpx;
 }
 
-.textt {
-  width: 90%;
-  position: absolute;
-  bottom: 220rpx;
-  font-size: 30rpx;
-  text-align: left;
-  color: #666;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-.bttn {
-  position: absolute;
-  width: 90%;
-  bottom: 100rpx;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-.bk {
-  background: #0075c2;
-  color: white;
-}
-
-.mons {
-  margin: auto;
-  width: 90%;
-  height: 150rpx;
-  line-height: 3.8em;
-  padding-left: 5%;
-  margin-bottom: 20rpx;
-  text-align: right;
-}
-.r{
-  margin-right: 20rpx;
-}
-.l{
-  margin-right: 300rpx;
-}
-.c0 {
-  background: #6fa3d2;
-}
-
-.c1 {
-  background: #60bf3f;
-}
-
-.c2 {
-  background: #34bd75;
-} */
-image{
-  width: 750rpx;
-  height: 1995rpx;
-  display: block;
-}
-.location{
-  position:absolute;
-  top:590rpx;
-  left:40rpx;
-  font-size:28rpx;
-}
-.bottomBtnR{
+.con {
   width: 100%;
+  height: 200rpx;
+}
+
+.location {
   position: relative;
+  left: 50rpx;
+  top: 20rpx;
+}
+
+.vip {
+  position: relative;
+  left: 50rpx;
+  top: 80rpx;
+}
+
+.notVip {
+  font-size: 24rpx;
+  color: #eee;
+  opacity: 0.5;
+}
+
+.notvipcon {
+  font-size: 24rpx;
+  color: #eee;
+  border: 1px solid #eee;
+  margin-left: 10rpx;
+  opacity: 0.5;
+}
+
+.isVip {
+  color: #fff;
+  padding-left: 40rpx;
+}
+
+.isvipcon {
+  background-color: #aaff35;
+  color: #000;
+  margin-left: 10rpx;
+  padding: 0 5rpx;
+}
+
+.bottomBtnR {
+  width: 100%;
+  position: fixed;
   bottom: 0;
   left: 0;
-  height: 60rpx;
 }
+
 .bottomBtnR image {
   position: absolute;
   left: 27%;

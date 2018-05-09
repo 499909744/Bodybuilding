@@ -9,6 +9,8 @@
     "pages/user/coupon/coupon",
     "pages/user/fault/fault",
     "pages/user/record/record",
+    "pages/user/yz/yz",
+    "pages/user/yc/yc",
     "pages/choosePay/choosePay",
     "pages/login/useConvention/useConvention",
     "pages/login/auth/auth",

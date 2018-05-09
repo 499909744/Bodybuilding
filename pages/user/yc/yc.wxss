@@ -1,0 +1,10 @@
+/* pages/user/yc/yc.wxss */
+.btnn{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+picker{
+  margin-top: 200rpx;
+  text-align: center;
+}

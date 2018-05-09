@@ -212,7 +212,8 @@ Page({
       if (res.data.mobile) {
         app.globalData.authUserInfo = true;
         app.globalData.phone = res.data.mobile;
-        app.globalData.isVip = res.data.isVip
+        app.globalData.isVip = res.data.isVip;
+        app.globalData.userType = res.data.userType;
         if (res.data.isVip == 1){
           wx.reLaunch({
             url: '/pages/user/openVip/openVip',

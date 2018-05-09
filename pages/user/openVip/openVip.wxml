@@ -2,5 +2,11 @@
 <view>
   <image class='vipBg' style='height:{{windowHeight}}px' src='../../../images/vip/vipBg.png'></image>
   <image class='isjoin joinVip' bindtap='goPay' src='../../../images/vip/joinVip.png'></image>
-  <image class='isjoin lookAgainVip'  bindtap='lookAgainVip'  src='../../../images/vip/lookAgainVip.png'></image>
+  <image class='isjoin lookAgainVip' bindtap='lookAgainVip' src='../../../images/vip/lookAgainVip.png'></image>
+
 </view>
+<picker bindchange="bindPickerChange" value="{{index}}" range-key="location" range="{{array}}">
+  <view class="picker">
+    所在健身仓：{{array[index].location || '请选择'}}
+  </view>
+</picker>

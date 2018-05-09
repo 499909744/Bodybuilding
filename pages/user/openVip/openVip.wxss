@@ -10,7 +10,14 @@
   position: absolute;
   width: 300rpx;
   height: 94rpx;
-  bottom: 150rpx;
+  bottom: 80rpx;
+}
+
+picker {
+  position: absolute;
+  bottom: 240rpx;
+  text-align: center;
+  width: 100%;
 }
 
 .joinVip {

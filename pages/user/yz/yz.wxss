@@ -1,0 +1,18 @@
+/* pages/user/yz/yz.wxss */
+.tit{
+  text-align: center;
+  margin-top: 200rpx;
+}
+.btnn{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+.can {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  margin-left: -100px;
+  margin-top: 20rpx;
+}

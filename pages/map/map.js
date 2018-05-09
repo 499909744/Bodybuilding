@@ -19,7 +19,6 @@ Page({
     var that = this;
     that.getGymList();
     that.getSystemInfo();
-    // that.getOrder();
   },
   /**
    * 获取屏幕尺寸
@@ -70,44 +69,14 @@ Page({
       url: '../user/user'
     })
   },
-
   /**
    * 跳转二维码
    */
   linkPlay: function (e) {
     console.log(e);
-    let id = e.currentTarget.dataset.id;
+    let item = e.currentTarget.dataset.item;
     wx.navigateTo({
-      url: '/pages/choosePay/choosePay?id=' + id,
-    })
-  },
-
-  getOrder: function () {
-    let orderSerial = wx.getStorageSync('orderSerial')
-    let _url = 'https://xiao2.dandaojiuye.com/gym';
-    wx.request({
-      url: `${_url}/api/v1/gym/scanRecord/getScanRecord/${orderSerial}/serialNo`,
-      method: 'GET',
-      header: {
-        'content-type': 'application/json',
-        'token_id': app.globalData.token
-      },
-      success: function (res) {
-        console.log(res);
-        if (res.statusCode == 200) {
-          if (res.data.leftSeconds > 0 && res.data.status == 5) {
-            wx.reLaunch({
-              url: '/pages/map/map',
-            })
-          }
-        }
-      },
-      fail: function (res) {
-        console.log(res)
-      },
-      complete: function () {
-        wx.hideLoading();
-      }
+      url: '/pages/choosePay/choosePay?item=' + JSON.stringify(item),
     })
   },
   /**

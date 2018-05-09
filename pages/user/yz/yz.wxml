@@ -1,0 +1,6 @@
+<view class='tit'>
+<text>生成业主二维码</text>
+</view>
+
+<canvas class='can' canvas-id="mycanvas" />
+<button class='btnn' bindtap='getYcKm'>生成业主二维码</button>

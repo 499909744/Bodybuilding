@@ -1,28 +1,21 @@
-<!-- <view class='content'>
-  <view wx:if='{{isVip == 1}}' class='mons {{"c"+index}}' wx:for="{{scanPriceNotVip}}" data-hours='{{item.hours}}' wx:key="*this" bindtap='goPay'>
-    <text class='l'>{{item.configName}}</text>
-    <text class='r'>¥{{item.configValue}}元</text>
-  </view>
-
-  <view wx:if='{{isVip == 2}}' class='mons {{"c"+index}}' wx:for="{{scanPriceVip}}" data-hours='{{item.hours}}' wx:key="*this" bindtap='goPay'>
-    <text class='l'>{{item.configName}}</text>
-    <text class='r'>¥{{item.configValue}}元</text>
-  </view>
-</view>
-
-<view class='textt'>
-  <text>收费标准:\n</text>
-  <text>非会员{{scanPriceNotVip[0].configValue}}元/每小时, 会员{{scanPriceVip[0].configValue}}元/每小时, 入会费{{vipPrice.configValue}}元,押金{{depositPrice.configValue}}元\n</text>
-  <text>一人一码,禁止尾随进入\n</text>
-  <text>享跑不会以任何形式要求您输入银行账户和密码</text>
-</view>-->
 <view>
-  <image wx:if="{{location == 1}}" src='../../images/play/details.png'></image>
-  <image wx:if="{{location == 2}}" src='../../images/play/details1.jpg'></image>
+  <image src='../../images/play/11.jpg' mode="widthFix"></image>
 
-  <!--<view class="location">{{location}}</view>-->
+  <view class='con'>
+    <text class='location'>{{itemInfo.location}}</text>
+    <view class='vip'>
+      <text class='notVip'>¥ {{scanPriceNotVip[0].configValue}}</text>
+      <text class='notvipcon'>非会员</text>
+      <text class='isVip'>¥ {{scanPriceVip[0].configValue}}</text>
+      <text class='isvipcon'>会员</text>
+    </view>
+  </view>
+
+
+  <image src='../../images/play/222.jpg' mode="widthFix"></image>
+
   <view class="bottomBtnR">
-    <button  bindtap="goPay">
+    <button bindtap="goPay">
       <image src="../../../images/map/sao1.png"></image>
       {{btnText}}
     </button>

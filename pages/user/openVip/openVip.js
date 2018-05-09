@@ -1,6 +1,8 @@
 // pages/user/openVip/openVip.js
 const paymentUrl = require('../../../config').paymentUrl
 const getUserInfoUrl = require('../../../config').getUserInfoUrl;
+const getGymListUrl = require('../../../config').getGymListUrl;
+
 const app = getApp();
 Page({
 
@@ -11,6 +13,8 @@ Page({
     windowHeight: 0,
     windowWidth: 0,
     s: '',
+    array: [],
+    currentItem: {}
   },
 
   joinVip: function () {
@@ -26,6 +30,7 @@ Page({
    */
   onLoad: function (options) {
     this.getSystemInfo();
+    this.getGymList();
   },
   /**
      * 获取屏幕尺寸
@@ -48,8 +53,15 @@ Page({
   goPay: function () {
     wx.showLoading();
     let that = this;
+    if (!this.data.currentItem.id){
+      wx.showToast({
+        icon: 'loading',
+        title: '请选择位置',
+      });
+      return;
+    }
     wx.request({
-      url: `${paymentUrl}?type=2`,
+      url: `${paymentUrl}?type=2&gymHourseId=${this.data.currentItem.id}`,
       method: 'POST',
       header: {
         'content-type': 'application/json',
@@ -169,5 +181,42 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  bindPickerChange: function (e) {
+    let index = e.detail.value;
+    let _currentItem = this.data.array[index];
+    this.setData({
+      index: e.detail.value,
+      currentItem: _currentItem
+    })
+  },
+
+  /**
+  * 获取健身房集合
+  */
+  getGymList: function () {
+    wx.showLoading();
+    let that = this;
+    wx.request({
+      url: getGymListUrl,
+      method: 'GET',
+      header: {
+        'content-type': 'application/json',
+        'token_id': app.globalData.token
+      },
+      success: function (res) {
+        console.log(res);
+        that.setData({
+          array: res.data
+        });
+      },
+      fail: function (res) {
+        console.log(res)
+      },
+      complete: function () {
+        wx.hideLoading();
+      }
+    })
+  },
 })

@@ -69,6 +69,7 @@ App({
     authUserInfo: false,
     phone: '',
     isVip: 1,
-    points: 0
+    points: 0,
+    userType: 1
   }
 })

@@ -7,7 +7,7 @@ page {
   position: relative;
 }
 
-.bigBox>view>navigator {
+.bigBox>view>text {
   font-size: 20rpx;
   color: #fff;
   position: absolute;

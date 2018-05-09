@@ -1,0 +1,9 @@
+<!--pages/user/yc/yc.wxml-->
+<picker bindchange="bindPickerChange" value="{{index}}" range-key="location" range="{{array}}">
+  <view class="picker">
+    选择所要开门的位置：{{array[index].location || '请选择'}}
+  </view>
+</picker>
+
+
+<button class='btnn' bindtap='getYcKm'>开门</button>

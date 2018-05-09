@@ -11,6 +11,8 @@ Page({
     vip: '未开通',
     isVip: 1,
     points: 0,
+    userType: 1,
+
   },
   //事件处理函数
   linkRecord: function () {
@@ -89,6 +91,7 @@ Page({
     this.setData({
       isVip: app.globalData.isVip,
       points: app.globalData.points,
+      userType: app.globalData.userType,
     });
     if (!app.globalData.userInfo) {
       wx.getUserInfo({
@@ -126,5 +129,16 @@ Page({
     wx.navigateTo({
       url: '/pages/user/openVip/openVip',
     })
-  }
+  },
+  linkYz:function(){
+    wx.navigateTo({
+      url: '/pages/user/yz/yz',
+    })
+  },
+
+  linkYc: function () {
+    wx.navigateTo({
+      url: '/pages/user/yc/yc',
+    })
+  },
 })

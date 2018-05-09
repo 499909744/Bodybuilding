@@ -1,8 +1,8 @@
 <view class='bigBox'>
   <block wx:for="{{getGymList.data}}" wx:key="*this">
-    <view bindtap='linkPlay' data-id='{{item.id}}'>
+    <view bindtap='linkPlay' data-item='{{item}}'>
       <image class='gymImg' src='{{item.coverImg}}' mode="widthFix"></image>
-      <navigator url="/pages/choosePay/choosePay?id={{item.id}}">{{item.location}}</navigator>
+      <text url="">{{item.location}}</text>
     </view>
   </block>
 

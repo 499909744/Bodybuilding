@@ -38,6 +38,14 @@
       <image src="../../images/user/gu1.png"></image>故障上报
       <view class="triangle-facing-right"></view>
     </view>
+    <view wx:if="{{userType == 2}}" bindtap="linkYz">
+      <image src="../../images/user/gu1.png"></image>业主二维码
+      <view class="triangle-facing-right"></view>
+    </view>
+    <view wx:if="{{userType == 2}}" bindtap="linkYc">
+      <image src="../../images/user/gu1.png"></image>远程开门
+      <view class="triangle-facing-right"></view>
+    </view>
     <!-- <view bindtap="refund">
       <image src="../../images/user/tui1.png"></image>退还押金
       <view class="triangle-facing-right"></view>
