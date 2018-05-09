@@ -6,7 +6,7 @@ Page({
   data: {
     windowHeight: 0,
     windowWidth: 0,
-    getGymList:[],
+    getGymList: [],
   },
   onLoad: function () {
     wx.showLoading()
@@ -74,9 +74,11 @@ Page({
   /**
    * 跳转二维码
    */
-  linkPlay: function () {
+  linkPlay: function (e) {
+    console.log(e);
+    let id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/pages/choosePay/choosePay',
+      url: '/pages/choosePay/choosePay?id=' + id,
     })
   },
 
@@ -108,24 +110,24 @@ Page({
       }
     })
   },
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-        return {
-            title: '享跑盒子',
-            path: '/pages/login/login',
-            imageUrl: '../../images/login/logo1.png',
-            success: function (res) {
-                wx.showToast({
-                    title: '分享成功',
-                    icon: 'success',
-                    duration: 2000
-                })
-            },
-            fail: function (res) {
-                // 转发失败
-            }
-        }
-    },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    return {
+      title: '享跑盒子',
+      path: '/pages/login/login',
+      imageUrl: '../../images/login/logo1.png',
+      success: function (res) {
+        wx.showToast({
+          title: '分享成功',
+          icon: 'success',
+          duration: 2000
+        })
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
+  },
 })

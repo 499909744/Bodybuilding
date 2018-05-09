@@ -24,7 +24,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      location: options.location,
+      location: options.id,
       isVip: app.globalData.isVip,
     })
     this.getMoney();

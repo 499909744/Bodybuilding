@@ -17,7 +17,9 @@
   <text>享跑不会以任何形式要求您输入银行账户和密码</text>
 </view>-->
 <view>
-  <image src='../../images/play/details.png'></image>
+  <image wx:if="{{location == 1}}" src='../../images/play/details.png'></image>
+  <image wx:if="{{location == 2}}" src='../../images/play/details1.jpg'></image>
+
   <!--<view class="location">{{location}}</view>-->
   <view class="bottomBtnR">
     <button  bindtap="goPay">
