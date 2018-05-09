@@ -11,6 +11,7 @@
     "pages/user/record/record",
     "pages/user/yz/yz",
     "pages/user/yc/yc",
+    "pages/user/sb/sb",
     "pages/choosePay/choosePay",
     "pages/login/useConvention/useConvention",
     "pages/login/auth/auth",

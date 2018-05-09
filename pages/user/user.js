@@ -141,4 +141,9 @@ Page({
       url: '/pages/user/yc/yc',
     })
   },
+  linkSb: function () {
+    wx.navigateTo({
+      url: '/pages/user/sb/sb',
+    })
+  },
 })

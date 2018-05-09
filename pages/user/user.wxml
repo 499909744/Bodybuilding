@@ -16,7 +16,7 @@
       <view class="triangle-facing-right"></view>
       <text class="authentication">已认证</text>
     </view>
-    <view >
+    <view>
       <image src="../../images/user/VIP1.png"></image>我的会员
       <view class="triangle-facing-right"></view>
       <text wx:if="{{isVip ==1}}" bindtap='goVip' class="authentication">未开通</text>
@@ -44,6 +44,10 @@
     </view>
     <view wx:if="{{userType == 2}}" bindtap="linkYc">
       <image src="../../images/user/gu1.png"></image>远程开门
+      <view class="triangle-facing-right"></view>
+    </view>
+    <view wx:if="{{userType == 2}}" bindtap="linkSb">
+      <image src="../../images/user/gu1.png"></image>查看设备是否在线
       <view class="triangle-facing-right"></view>
     </view>
     <!-- <view bindtap="refund">

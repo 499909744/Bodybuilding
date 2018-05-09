@@ -1,0 +1,13 @@
+<view class='tit'>
+  <text>查看设备是否在线</text>
+
+
+  <view class='f' wx:for="{{resInfo}}">
+    <view>设备名称:{{item.deviceName}}</view>
+    <view>设备ID:{{item.deviceId}}</view>
+    <view>设备Code:{{item.deviceCode}}</view>
+    <view wx:if="{{item.isOnline == 1}}">是否在线:在线</view>
+    <view wx:if="{{item.isOnline == 0}}">是否在线:离线</view>
+    <view>------------------</view>
+  </view>
+</view>
