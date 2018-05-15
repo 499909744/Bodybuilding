@@ -99,4 +99,12 @@ Page({
       }
     }
   },
+
+  linkMap: function (e) {
+    console.log(e);
+    let id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/play/play?id=' + id ,
+    })
+  },
 })

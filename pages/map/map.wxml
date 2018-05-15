@@ -2,7 +2,8 @@
   <block wx:for="{{getGymList.data}}" wx:key="*this">
     <view bindtap='linkPlay' data-item='{{item}}'>
       <image class='gymImg' src='{{item.coverImg}}' mode="widthFix"></image>
-      <text url="">{{item.location}}</text>
+      <text class='_location' data-id='{{item.id}}' catchtap='linkMap'>{{item.location}}</text>
+
     </view>
   </block>
 

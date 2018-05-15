@@ -7,7 +7,7 @@ page {
   position: relative;
 }
 
-.bigBox>view>text {
+._location {
   font-size: 20rpx;
   color: #fff;
   position: absolute;
@@ -23,12 +23,11 @@ page {
   margin-top: 20rpx;
 }
 
-.home{
-  position:fixed;
+.home {
+  position: fixed;
   bottom: 140rpx;
   width: 100rpx;
   height: 100rpx;
   z-index: 100;
   right: 20rpx;
 }
-

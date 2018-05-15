@@ -1,14 +1,2 @@
-<view class='title'>
-  <text>请使用二维码进入健身房</text>
-</view>
-
-<view class='img__content' bindtap='linkPlaying'>
-  <image src='../../images/play/2wm.png' />
-</view>
-
-<view class='ps'>
-  <text class='ps__title'>温馨提示:\n</text>
-  <text class='ps__title'>1.计费方式:不满1小时,按1小时计算\n</text>
-  <text bindtap='call'>2.异常情况,请拨打:<text class='ps__tel'>18691631441\n</text></text>
-  <text class='ps__title'>3.最终解释权归 享跑盒子 所有</text>
-</view>
+<image wx:if="{{_id == '1' }}" src='../../images/map/1.jpg' />
+<image wx:if="{{_id == '2' }}" src='../../images/map/2.jpg' />
