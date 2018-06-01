@@ -15,7 +15,7 @@ image {
 
 .vip {
   position: relative;
-  left: 50rpx;
+  padding-left: 50rpx;
   top: 80rpx;
 }
 

@@ -1,2 +1,1 @@
-<image wx:if="{{_id == '1' }}" src='../../images/map/1.jpg' />
-<image wx:if="{{_id == '2' }}" src='../../images/map/2.jpg' />
+<map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" bindregionchange="regionchange" show-location ></map>

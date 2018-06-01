@@ -102,9 +102,9 @@ Page({
 
   linkMap: function (e) {
     console.log(e);
-    let id = e.currentTarget.dataset.id;
+    let item = e.currentTarget.dataset.item;
     wx.navigateTo({
-      url: '/pages/play/play?id=' + id ,
+      url: '/pages/play/play?item=' + JSON.stringify(item),
     })
   },
 })

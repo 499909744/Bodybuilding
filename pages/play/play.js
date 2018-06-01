@@ -5,66 +5,51 @@ Page({
    * 页面的初始数据
    */
   data: {
-    _id: '',
+    _item: '',
+    latitude: '',
+    longitude: '',
+    markers: [],
   },
-
+  regionchange(e) {
+    console.log(e.type)
+  },
+  markertap(e) {
+    console.log(e.markerId)
+  },
+  controltap(e) {
+    console.log(e.controlId)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
+    console.log(JSON.parse(options.item));
+    let _item = JSON.parse(options.item);
     this.setData({
-      _id:options.id
+      _item: options.item
     });
-  },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+    let _markers = [];
+    let _marker = {
+      iconPath: "../../images/login/logo1.png",
+      id: _item.id,
+      latitude: _item.latitude,
+      longitude: _item.longitude,
+      width: 80,
+      height: 50,
+      callout: {
+        content: _item.location,
+        display: 'ALWAYS',
+        fontSize: 18
+      }
+    };
+    _markers.push(_marker);
+    this.getCurrentLocation();
+    this.setData({
+      markers: _markers
+    })
 
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    console.log(this.data.markers)
   },
   /**
    * 拨打电话
@@ -81,5 +66,23 @@ Page({
     wx.redirectTo({
       url: '/pages/map/map',
     })
-  }
+  },
+
+  getCurrentLocation: function () {
+    var that = this;
+    wx.getLocation({
+      type: 'gcj02',
+      success: function (res) {
+        var latitude = res.latitude;
+        var longitude = res.longitude;
+        that.setData({
+          latitude: latitude,
+          longitude: longitude,
+        });
+      },
+      fail: function (error) {
+        console.log(error);
+      }
+    })
+  },
 })
