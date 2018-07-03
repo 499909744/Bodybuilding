@@ -1,5 +1,5 @@
-var host = 'https://xiao2.dandaojiuye.com/gym'
-
+//var host = 'https://xiao2.dandaojiuye.com/gym'
+var host = 'https://www.chinaxfit.com/gym'
 var config = {
   host,
   getTokenIdUrl: `${host}/api/v1/gym/userInfo/login`,//获取接口权限凭证

@@ -91,7 +91,7 @@ Page({
     wx.showLoading();
     let that = this;
     wx.request({
-      url: `https://xiao2.dandaojiuye.com/gym/api/v1/gym/scanRecord/getVisitQrCode/${code}/serialNo`,
+      url: `https://www.chinaxfit.com/gym/api/v1/gym/scanRecord/getVisitQrCode/${code}/serialNo`,
       method: 'GET',
       data: {},
       header: {

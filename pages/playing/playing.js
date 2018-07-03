@@ -32,7 +32,7 @@ Page({
 
   getOrder: function (orderSerial) {
     let that = this;
-    let _url = 'https://xiao2.dandaojiuye.com/gym';
+    let _url = 'https://www.chinaxfit.com/gym';
     wx.request({
       url: `${_url}/api/v1/gym/scanRecord/getScanRecord/${orderSerial}/serialNo`,
       method: 'GET',
